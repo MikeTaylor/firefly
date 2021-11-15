@@ -1,0 +1,26 @@
+Who is busy in what timeslots? All times in GMT
+
+	M = Mike
+	S = Sebastian
+	W = Wayne
+	J = Jason
+	A = Adam
+
+	Mon	Tue	Wed	Thu	Fri
+-------------------------------------------
+9am
+10am
+11am
+12pm		
+1pm		MSWJA
+(Wayne's usual start time)
+2pm	J	WJ	J	WS	S
+3pm	WJ	J	JS	WS	S
+4pm			S	WS	S
+5pm			S	S	S
+
+Thank you, all. This comes out more simply than I had feared it might:* Seb is unavailable Thursday and Friday* Jason doesn't work WednesdaysSo we are left with those parts of Monday and Tuesday that work for all of us.Jason prefers not to start till 10 his time (3pm my time) and Wayne is in any case booked for part of the pre-3pm times.That leaves the last two hours of the UK working day (between 4pm and 6pm) on Mondays and Tuesdays.Since today in Monday it may not be very realistic to get something together in such short order.So I nominate TOMORROW AT 4pm GMT (= 11am Eastern time, I believe). We'll use a Slack call.
+
+Please confirm.
+-- Mike.
+

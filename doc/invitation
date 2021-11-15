@@ -1,0 +1,22 @@
+Date: Nov 12, 2021, 2:32 PM
+From: Mike Taylor <mike@indexdata.com>
+To: Sebastian Hammer <quinn@indexdata.com>,
+	Wayne Schneider <wayne@indexdata.com>,
+	Jason Skomorowski <jason@indexdata.com>,
+	Adam Dickmeiss <adam@indexdata.dk>
+Subject: Getting started on FMIP (FOLIO Modularity on Practice)
+
+We all agree that we need to provide a practical route for institutions implementing FOLIO to include modules from third parties -- those not anointed as part of a flower release. Getting this to work involves both technical and social/political work. We need to get started on the former so we at least have something to propose for the latter.
+
+I have invited the four of you to meet with me and hack out the broad approach we want to propose: Jason as someone who understands front-end modules, Adam for Okapi and back-end modules, Wayne for devops, and Seb for the 30,000-foot view. I'm here in my role as driver and rapporteur.
+
+No doubt we could easily name lots of other people who might usefully contribute to the discussion. I want to avoid that: five or so is about as big as a discussion group can usefully be. There will be plenty of opportunity for others to chip in once we have the very broad outlines of an approach, which I will write up based on our discussions.
+
+When can we meet? For me, any time from 9am-6pm GMT is fine, any day of the working week, with the exception of the weekly team meeting on Tuesdays -- all my other recurring meetings have dried up, happily. I realise you guys are mostly much more schedule-constrained than I am, so please send me your availabilites and I will try to pick the time that works best for most of us. I suggest an hour for the first session, and we can figure out after that what we want to do next and when to open the work up to a broader group.
+
+Please try to reply by the end of work today, so we can get going next week.
+
+Thank you!
+
+-- Mike.
+
