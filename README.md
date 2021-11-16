@@ -18,7 +18,7 @@ The present project aims to remove technical barriers to easier packaging and de
 
 There are several technical and social facilities that would need to be provided for a fully general FOLIO ecosysem to come into being. These include but may not be limited to the following:
 
-* Defining a FOLIO-app "package" format -— a single concrete thing, broadly analogous to a Debian package, that a vendor can create and deliver, and that a FOLIO implementor can install. This may end up simply being a structured metadata file that points to other release-artifacts packages and includes information about how to deploy them.
+* A FOLIO-app "package" format -- a single concrete thing, broadly analogous to a Debian package, that a vendor can create and deliver, and that a FOLIO implementor can install. This may end up simply being a structured metadata file that points to other release-artifacts packages and includes information about how to deploy them. See [_Thoughts on the MAFIA package format_](doc/package.md),
 * Some notion of module certificaton and assessment, so FOLIO implementors who want to install an app can have a degree of confidence in it. This will likely entail cryptographic signing, but also perhaps some form of independent QA, reviews, scores, etc.
 * A simple UI to basic Okapi operations such as enabling and disabling modules. This might initially just be a page in [`ui-developer`](https://github.com/folio-org/ui-developer/), and might eventually develop in to an "app store" that can be used to install packages.
 
