@@ -6,6 +6,7 @@
 * [Motivating examples](#motivating-examples)
 * [Requirements](#requirements)
 * [Implementation issues](#implementation-issues)
+    * [Foundational assumption](#foundational-assumption)
     * [Package inclusion](#package-inclusion)
     * [Prior art](#prior-art)
     * [Interpretive context](#interpretive-context)
@@ -60,6 +61,11 @@ There are no doubt many other requirements that could be added. Recognising and 
 
 
 ## Implementation issues
+
+### Foundational assumption
+
+Since a great deal of work goes into ensuring that the foundational components (Okapi, core modules for authentication and suchlike, the Stripes libraries and their dependencies) work together within a flower release, it makes sense to exploit that work. Accordingly, each Mafia package should be targeted to the core of a specific flower release; so there would be, for example, ReShare for Kiwi and ReShare for Lotus. It would be the responsiblity of Mafia-package maintainers to ensure they run on each new flower release.
+
 
 ### Package inclusion
 
