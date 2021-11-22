@@ -9,7 +9,6 @@
     * [Foundational assumption](#foundational-assumption)
     * [Package inclusion](#package-inclusion)
     * [Prior art](#prior-art)
-    * [Interpretive context](#interpretive-context)
 * [Candidate technologies](#candidate-technologies)
 
 
@@ -74,10 +73,6 @@ Since MAFIA packages will in some sense need to include existing front-end and b
 ### Prior art
 
 The world is full of package formats already, including RPMs, Debian packages, Node packages, and various attempts to unify these. Some effort should be made to survey these existing tools and see to what extent they can meet all the needs of MAFIA packages. Rather than designing something from the ground up, it may be possible to adapt or extend an existing format -- or even to adopt one without change, adding only conventions on how it is used.
-
-### Interpretive context
-
-XXX DOIs vs doi.org URLs
 
 
 ## Candidate technologies
