@@ -3,6 +3,13 @@
 This is a project to put FOLIO's foundational modularity to work, enabling a FOLIO installation in practice to support modular use of applications provided by third parties rather than being limited to the modules provided as part of a flower release. Getting this to happen involves both technical and social/political work. This project represents work on the technical aspect.
 
 
+<!-- md2toc -l 2 README.md -->
+* [Manifesto](#manifesto)
+* [Areas of work](#areas-of-work)
+* [Practical steps](#practical-steps)
+* [Related work](#related-work)
+
+
 ## Manifesto
 
 Quoting from the abstract of _Modularity in FOLIO: principles, techniques and tools_ ([available as a preprint from Zenodo](https://zenodo.org/record/5703010): and submitted to the forthcoming FOLIO-themed special issue of the _International Journal of Librarianship_):
