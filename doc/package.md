@@ -90,7 +90,7 @@ If we conclude this is not necessary, then it may suffice to use a structured te
 
 ### Virtual packages
 
-It may be possible to achieve at least part of what is required by using virtual packages -- that is, packages with no contents, only dependencies. This is in effect what we already do on the front-end when we create a "platform" package such as [`platform-complete`](https://github.com/folio-org/platform-complete): the `package.json` lists dependencies but there is no platform-level code.
+It may be possible to achieve at least part of what is required by using existing FOLIO-package technology to make virtual packages -- that is, packages with no contents, only dependencies. This is in effect what we already do on the front-end when we create a "platform" package such as [`platform-complete`](https://github.com/folio-org/platform-complete): the `package.json` lists dependencies but there is no platform-level code.
 
 Front-end packages have `okapiInterfaces` and `optionalOkapiInterfaces` sections in their package file. As part of FOLIO build processes, package files are transformed into module-descriptors using [`stripes mod descriptor`](https://github.com/folio-org/stripes-cli/blob/master/doc/commands.md#mod-descriptor-command), and these dependencies are included in the generated module descriptor.
 
