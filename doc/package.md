@@ -10,6 +10,9 @@
     * [Package inclusion](#package-inclusion)
     * [Prior art](#prior-art)
 * [Candidate technologies](#candidate-technologies)
+    * [Zip archives](#zip-archives)
+    * [Structured text](#structured-text)
+    * [Virtual packages](#virtual-packages)
 
 
 ## Introduction
@@ -77,8 +80,20 @@ The world is full of package formats already, including RPMs, Debian packages, N
 
 ## Candidate technologies
 
+### Zip archives
+
 If we conclude that we need MAFIA packages to physically include front-end and back-end package files (most likely NPMs and Docker containers), then we will need a format suitable for large files and capable of carrying binary payloads. In this case we would most likely follow the [OpenDocument format](https://en.wikipedia.org/wiki/OpenDocument)'s approach of using a ZIP archive or tarball from which individual files can be easily extracted, with a conventional layout of the contents of the archive.
 
+### Structured text
+
 If we conclude this is not necessary, then it may suffice to use a structured text-based format instead, based probably on JSON (as for Node package description files), XML, or YAML.
+
+### Virtual packages
+
+It may be possible to achieve at least part of what is required by using virtual packages -- that is, packages with no contents, only dependencies. This is in effect what we already do on the front-end when we create a "platform" package such as [`platform-complete`](https://github.com/folio-org/platform-complete): the `package.json` lists dependencies but there is no platform-level code.
+
+Front-end packages have `okapiInterfaces` and `optionalOkapiInterfaces` sections in their package file. As part of FOLIO build processes, package files are transformed into module-descriptors using [`stripes mod descriptor`](https://github.com/folio-org/stripes-cli/blob/master/doc/commands.md#mod-descriptor-command), and these dependencies are included in the generated module descriptor.
+
+As a result, front-end packages -- like back-end packages -- depend not on back-end modules but back-end _interfaces_. For most purposes this is the right way to do things: `ui-inventory` itself does not need to access `mod-inventory` specifically, but any module that implements the relevant interfaces. But when specifying a complete FOLIO application suite, it's necessary to specify which implementations are included. For this reason it may be necessary to extend [the module-descriptor format](https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json) so that it can depend on implementations as well as interfaces -- although making this possible will open the door to some bad behaviours that will need to be rigorously discouraged.
 
 
