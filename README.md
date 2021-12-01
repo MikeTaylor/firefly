@@ -52,8 +52,12 @@ There are several technical and social facilities that would need to be provided
 * Addressing task 3 above, it would be helpful to have a simple UI to basic Okapi operations such as enabling and disabling modules. This might initially just be a page in [`ui-developer`](https://github.com/folio-org/ui-developer/), and might eventually develop in to an "app store" that can be used to install packages.
 
 
-## Related work
+## Documents
 
+* [_Thoughts on the MAFIA package format_](doc/package.md)
+* [_Supporting FOLIO's cluster architecture in the Okapi Console_](doc/cluster-architecture.md)
+
+See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
 
 
