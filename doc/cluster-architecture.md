@@ -13,7 +13,7 @@
 
 ## Definitions
 
-By design, FOLIO is achitechturally flexible. It can be run in many different ways, from a loose selection of modules running as processes on a single machine, up through containerised variants, Vagrant-controlled virtual machines, and other arrangements, to large, scalable production systems. In the face of all these possibilities, it can be difficult even to agree on terminology. Here is a set of terms, roughly from biggest to smallest, for the ingredients of Index Data's large-scale FOLIO deployments.
+By design, FOLIO is architecturally flexible. It can be run in many different ways, from a loose selection of modules running as processes on a single machine, up through containerised variants, Vagrant-controlled virtual machines, and other arrangements, to large, scalable production systems. In the face of all these possibilities, it can be difficult even to agree on terminology. Here is a set of terms, roughly from biggest to smallest, for the ingredients of Index Data's large-scale FOLIO deployments.
 
 * _Kubernetes cluster_ -- [a set of nodes that run containerized applications](https://www.vmware.com/topics/glossary/content/kubernetes-cluster), allowing containers to run across multiple machines and environments.
 * _Kubernetes namespace_ -- [one of several organizational divisions within the Kubernetes cluster](https://www.vmware.com/topics/glossary/content/kubernetes-namespace), e.g. "shared-production", "shared-staging"
