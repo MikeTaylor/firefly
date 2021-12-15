@@ -2,6 +2,7 @@
 
 <!-- md2toc -l 2 how-we-add-apps.md -->
 * [Introduction](#introduction)
+    * [Multi-node arrangements](#multi-node-arrangements)
 * [Registering the module](#registering-the-module)
 * [Deploying the module](#deploying-the-module)
 * [Discovery for the module](#discovery-for-the-module)
@@ -10,9 +11,18 @@
 
 ## Introduction
 
-Current state (from Wayne)
+Before we can properly understand [what we mean by an "app" in FOLIO](what-is-an-app.md), or design [a package format](package.md), we need to understand the current bit-by-bit process of adding an app to a running FOLIO tenant. Only then can we properly pick apart which parts of the process are genuinely to do with the app itself (and thereore in principle packagable) and which are to do with a particular deployment strategy (in which case they must be left for different operators to do in the way that seems best to them).
 
-Let's use the example of a simple app like Course Reserves.
+This description of how things are presently done is largely derived from a meeting with Wayne Schneider on 14 December 2021, and in places may reflect how Index Data does deployment rather than fundamental facts about FOLIO.
+
+We will use the example of Course Reserves, a simple app consisting only of one UI module and one back-end module, and hope that this generalises well to more complex apps with multiple modules.
+
+Assuming the relevant artifacts are to hand, getting a new module running for a tenant involves four steps: registering it with Okapi, deploying it, making it available to discovery, and enabling it for the tenant.
+
+
+### Multi-node arrangements
+
+For the sake of simplicity, we did not think about multi-node arrangements in yesterday's meeting. In the general case of an Okapi cluster of _n_ nodes, do we register the module one time or _n_ times? Presumably we deploy it _n_ times, or maybe _m_ times for some other number _m_ of worker nodes? And I guess we send discovery information _m_ times (once for each deployed process)? But we only enable the module for the tenant once. XXX I do not yet know if this is correct.
 
 
 ## Registering the module
