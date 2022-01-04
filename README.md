@@ -12,7 +12,7 @@ This is a project to put FOLIO's foundational modularity to work, enabling a FOL
 
 ## Manifesto
 
-Quoting from the abstract of _Modularity in FOLIO: principles, techniques and tools_ ([available as a preprint from Zenodo](https://zenodo.org/record/5703010): and submitted to the forthcoming FOLIO-themed special issue of the _International Journal of Librarianship_):
+Quoting from the abstract of [_Modularity in FOLIO: Principles, Techniques And Tools_](https://journal.calaijol.org/index.php/ijol/article/view/208), the featured article in [the FOLIO-themed December 2021 special issue 6(2)](https://journal.calaijol.org/index.php/ijol/issue/view/14) of the _International Journal of Librarianship_:
 
 > From its earliest inception, FOLIO was conceived not as an ILS (Integrated Library System), but as a true Services Platform, composed of many independent but interdependent modules, and forming a foundation on which an ILS or other library software could be built out of relevant modules. This vision of modularity is crucial to FOLIO’s appeal to the library community, because it lowers the bar to participation: individual libraries may create modules that meet their needs, or hire developers to do so, or contribute to funding modules that will be of use to a broader community — all without needing “permission” from a central authority.
 
@@ -35,9 +35,9 @@ Setting up and running a FOLIO instance entails three quite separate areas of wo
 
 Improvements are there to be made in all three of these areas:
 
-1. At present, a "minimal" FOLIO system is uncomfortably large, due to a maze of dependencies that should be optional but are not. For example, the login process involves service-points, a concept that ties together users and inventory and so requires both user-mamanagement and inventory modules to be pull into the system.
+1. At present, a "minimal" FOLIO system is uncomfortably large, due to a maze of dependencies that should be optional but are not. For example, the login process involves service-points, a concept that ties together users and inventory and so requires both user-mamanagement and inventory modules to be pulled into the system.
 
-2. A FOLIO application is typically composed of multiple modules, some on the front-end and some on the back-end. At present, there is no good way to install all the components of an application in one shot. This means there is in some sense no such _thing_ as an application -- only aggregates of modules -- and therefore no simple was to install an application.
+2. A FOLIO application is typically composed of multiple modules, some on the front-end and some on the back-end. At present, there is no good way to install all the components of an application in one shot. This means there is in some sense no such _thing_ as an application -- only aggregates of modules -- and therefore no simple way to install an application.
 
 3. While Okapi provides [extensive and well-documented WSAPIs](https://github.com/folio-org/okapi/blob/master/doc/guide.md#okapis-own-web-services) for managing which modules are available to a tenant, there is no UI to these APIs, meaning that maintaining tenants is a job requiring devops skills.
 
@@ -49,11 +49,14 @@ There are several technical and social facilities that would need to be provided
 * Addressing task 1 above, work has begin, but is currently stalled, on ways to fix at least some of the "modular monolith" problems ([FOLIO-3253](https://issues.folio.org/browse/FOLIO-3253), [stripes-core pull-request 1101](https://github.com/folio-org/stripes-core/pull/1101)), so that a minimal FOLIO becomes small enough to function as a sensible platform for non-ILS application suites.
 * Addressing task 2 above, we need a FOLIO-app "package" format -- a single concrete thing, broadly analogous to a Debian package, that a vendor can create and deliver, and that a FOLIO implementor can install. This may end up simply being a structured metadata file that points to other release-artifacts packages and includes information about how to deploy them. See [_Thoughts on the MAFIA package format_](doc/package.md),
 * We will need some notion of module certificaton and assessment, so FOLIO implementors who want to install an app can have a degree of confidence in it. This will likely entail cryptographic signing, but also perhaps some form of independent QA, reviews, scores, etc.
-* Addressing task 3 above, it would be helpful to have a simple UI to basic Okapi operations such as enabling and disabling modules. This might initially just be a page in [`ui-developer`](https://github.com/folio-org/ui-developer/), and might eventually develop in to an "app store" that can be used to install packages.
+* Addressing task 3 above, it would be helpful to have a simple UI to basic Okapi operations such as enabling and disabling modules. This is currently prototyped as [a page in FOLIO's Developer Settings](https://folio-snapshot.dev.folio.org/settings/developer/okapi-console), but might eventually develop in to an "app store" that can be used to install packages.
 
 
 ## Documents
 
+The following in-progress documents represent the current state of this initiative:
+
+* [_What actually is a FOLIO app?_](doc/what-is-an-app.md)
 * [_Thoughts on the MAFIA package format_](doc/package.md)
 * [_Supporting FOLIO's cluster architecture in the Okapi Console_](doc/cluster-architecture.md)
 
