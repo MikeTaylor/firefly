@@ -57,6 +57,7 @@ There are several technical and social facilities that would need to be provided
 The following in-progress documents represent the current state of this initiative:
 
 * [_What actually is a FOLIO app?_](doc/what-is-an-app.md)
+* [_How we add apps to FOLIO_](doc/how-we-add-apps.md)
 * [_Thoughts on the MAFIA package format_](doc/package.md)
 * [_Supporting FOLIO's cluster architecture in the Okapi Console_](doc/cluster-architecture.md)
 
