@@ -7,6 +7,11 @@
     * [Going beyond the Flower Release](#going-beyond-the-flower-release)
 * [Towards a FOLIO module ecosystem](#towards-a-folio-module-ecosystem)
 * [A way forward](#a-way-forward)
+* [Some possible issues](#some-possible-issues)
+    * [Docker namespaces](#docker-namespaces)
+    * [NPM namespaces](#npm-namespaces)
+    * [Namespaces in Stripes](#namespaces-in-stripes)
+    * [App store metadata](#app-store-metadata)
 
 
 
@@ -52,7 +57,6 @@ It seems that when installing a FOLIO system, it is surprisingly easy to add a m
 Since the module-descriptor repository (MDR) is implemented by an instance of Okapi, we could easily host our own to contain the descriptors of non-Flower-Release modules such as `mod-lti-courses`. We can use DockerHub as the container repository for those modules. And the standard NPM repository takes care of supplying UI modules. Together these three repositories could be seen as constituting a "FOLIO repo" which enables Okapi to pull modules from an Index Data space independent from the TC-controlled main space.used.
 
 
-
 ## Towards a FOLIO module ecosystem
 
 But we can aim for a much more significant outcome than just supporting an Index Data-specific FOLIO repo. The broader FOLIO community can use this approach to provide a world of different repos, supported by many different vendors and customers, all providing FOLIO modules that are made available to any installation that wants them. Since Okapi can be configured to draw module descriptors from any number of upstream MDRs, there is no intrinsic limit.
@@ -65,20 +69,23 @@ As with Debian package repositories, we can imagine that different FOLIO reposit
 Quite possibly, each FOLIO vendor would offer a repository containing their own offerings. At least, each vendor would have the option of doing so. In this way, the original vision of FOLIO as a dynamic community-driven project rather than a monolithic centralised project would become a reality.
 
 
-
 ## A way forward
 
-To bring about this utopian future, we need a concrete sequence of achieveable steps. Here is one possible route:
+To bring about this utopian future, we need a concrete sequence of achieveable steps. Here is one possible route, which has the recommendation of not requiring any new software development.
 
-1. Write up in detail what is involved in creating a FOLIO Repository
-2. Create an Index Data FOLIO repository
+1. Write up in detail what is involved in creating a FOLIO Repository. We believe that we now understand this and it's pleasantly simple:
+  * Stand up a publicly accessible Okapi in a well-known location such as https://repo.folio.indexdata.com
+  * Protect that Okapi from being written to be outsiders, and furnish Index Data staff with credentials
+  * Post to it the descriptors of modules that make up Index Data apps.
+2. Create an Index Data FOLIO repository by doing the things listed in step 1.
 3. Make a "Hello world" FOLIO app, with both UI and server-side modules, and make it available via the Index Data repo
 4. Configure the Okapi of an Index Data-hosted FOLIO instance to read from this repo as well as the core one
-5. Establish that this means of module delivery works as intended
-6. Fix all the problems uncovered by stage 5 :-)
+5. Establish that this means of module delivery works as intended, fixing any the problems uncovered along the way.
+6. Demo the concept of a non-Flower FOLIO repository to the community, and gather support for the decentralization intiative.
 7. Use the Index Data FOLIO repo to host some real work done for a real customer -- for example, Duke's LTI Courses app, if we take over maintenance of that now their developer has moved on.
 8. Announce the availability of the repository for other FOLIO installations to use.
-9. Invite other FOLIO users to establish their own repositories.
+9. Invite other FOLIO users to establish their own repositories. Perhaps host a list of publicly available FOLIO repositories.
+10. Using Okapi's existing WSAPI, create a UI for the FOLIO repository. This might be another tab in the existing Okapi Console in `ui-developer`, or it could be a separate App Store.
 
 Once this is done, the guardian role of the FOLIO Technical Council will become much better defined. There are two layers of standards/requirements:
 1. What a module needs to do in order to run on a Okapi/Stripes platform
@@ -86,5 +93,23 @@ Once this is done, the guardian role of the FOLIO Technical Council will become 
 
 Part of the role of the Technical Council is to enforce the standards they consider appropriate for modules in the second category. But it's no part of their role to mandate the tools and approaches used by other teams to make modules that can be furnished via other FOLIO repos.
 
+
+## Some possible issues
+
+### Docker namespaces
+
+We can store Docker container artifacts on Dockerhub rather than going to all the trouble of running our own hub. But we might want to create a separate Docker namespace for our FOLIO modules.
+
+### NPM namespaces
+
+Similarly, we will want to use an Index Data namespace in NPM for the UI modules that we release via our own FOLIO repo. We will need to register that namespace, which is [not quite a trivial process](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages).
+
+### Namespaces in Stripes
+
+We may need to modify Stripes so it can run our non-`@folio`-namespaced modules. We can probably easily enough make a one-line tweak (either in code or in config, we're not sure which) to enable any specific additional namespace, such as `@indexdata`, but we would rather make it open for any organization to use its own NPM namespace. (At present, Stripes decides what modules to transpile based on what namespace they are in, which is clearly wrong -- but we think this applies only in the case of pure libraries, not modules, so this will probably not _immediately_ cause us problem.)
+
+### App store metadata
+
+For the putative app-store, we will want to present pages about modules analogous to how Apple's app-store shows pages about its products, or how Steam shows pages about games. In the short term, at least, the only information we will have to hand is what's in the module descriptors. That gives is basic information and dependencies, but we will also want human-readable information. We think there is a space in module descriptors to store arbitrary metadata, so we can come up with a convention for using that. We will need to modify how `stripes mod descriptor` works so it passes through relevant fields from the NPM package file into the generate module descriptor.
 
 
