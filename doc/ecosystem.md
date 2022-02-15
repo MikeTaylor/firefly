@@ -77,15 +77,16 @@ To bring about this utopian future, we need a concrete sequence of achieveable s
   * Stand up a publicly accessible Okapi in a well-known location such as https://repo.folio.indexdata.com
   * Protect that Okapi from being written to be outsiders, and furnish Index Data staff with credentials
   * Post to it the descriptors of modules that make up Index Data apps.
-2. Create an Index Data FOLIO repository by doing the things listed in step 1.
-3. Make a "Hello world" FOLIO app, with both UI and server-side modules, and make it available via the Index Data repo
-4. Configure the Okapi of an Index Data-hosted FOLIO instance to read from this repo as well as the core one
-5. Establish that this means of module delivery works as intended, fixing any the problems uncovered along the way.
-6. Demo the concept of a non-Flower FOLIO repository to the community, and gather support for the decentralization intiative.
-7. Use the Index Data FOLIO repo to host some real work done for a real customer -- for example, Duke's LTI Courses app, if we take over maintenance of that now their developer has moved on.
-8. Announce the availability of the repository for other FOLIO installations to use.
-9. Invite other FOLIO users to establish their own repositories. Perhaps host a list of publicly available FOLIO repositories.
-10. Using Okapi's existing WSAPI, create a UI for the FOLIO repository. This might be another tab in the existing Okapi Console in `ui-developer`, or it could be a separate App Store.
+2. Create an Index Data FOLIO repository by doing the things listed in step 1 ([DEVOPS-945](https://jira.indexdata.com/browse/DEVOPS-945))
+3. Make a "Hello world" FOLIO app, with both UI and server-side modules, and make it available via the Index Data repo ([FOL-37](https://jira.indexdata.com/browse/FOL-37))
+4. Create CI workflows for locally developed FOLIO apps ([DEVOPS-946](https://jira.indexdata.com/browse/DEVOPS-946))
+5. Create demonstration customer environment including MAFIA apps ([DEVOPS-947](https://jira.indexdata.com/browse/DEVOPS-947)). THe heart of this is configuring the Okapi of an Index Data-hosted FOLIO instance to read from this repo as well as the core one
+6. Establish that this means of module delivery works as intended, fixing any the problems uncovered along the way.
+7. Demo the concept of a non-Flower FOLIO repository to the community, and gather support for the decentralization intiative.
+8. Use the Index Data FOLIO repo to host some real work done for a real customer -- for example, Duke's LTI Courses app, if we take over maintenance of that now their developer has moved on.
+9. Announce the availability of the repository for other FOLIO installations to use.
+10. Invite other FOLIO users to establish their own repositories. Perhaps host a list of publicly available FOLIO repositories.
+11. Using Okapi's existing WSAPI, create a UI for the FOLIO repository. This might be another tab in the existing Okapi Console in `ui-developer`, or it could be a separate App Store.
 
 Once this is done, the guardian role of the FOLIO Technical Council will become much better defined. There are two layers of standards/requirements:
 1. What a module needs to do in order to run on a Okapi/Stripes platform
