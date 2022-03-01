@@ -77,7 +77,7 @@ Quite possibly, each FOLIO vendor would offer a repository containing their own 
 To bring about this utopian future, we need a concrete sequence of achieveable steps. Here is one possible route, which has the recommendation of not requiring any new software development.
 
 1. Write up in detail what is involved in creating a FOLIO Repository. We believe that we now understand this and it's pleasantly simple:
-  * Stand up a publicly accessible Okapi in a well-known location such as https://repo.folio.indexdata.com
+  * Stand up a publicly accessible Okapi in a well-known location such as https://registry.folio-dev.indexdata.com/
   * Protect that Okapi from being written to be outsiders, and furnish Index Data staff with credentials
   * Post to it the descriptors of modules that make up Index Data apps.
 2. Create an Index Data FOLIO repository by doing the things listed in step 1 ([DEVOPS-945](https://jira.indexdata.com/browse/DEVOPS-945))
