@@ -1,4 +1,4 @@
-# mafia - Modular Application for FOLIO: Installation Archive
+# mafia - Modular Approach to FOLIO In Action
 
 This is a project to put FOLIO's foundational modularity to work, enabling a FOLIO installation in practice to support modular use of applications provided by third parties rather than being limited to the modules provided as part of a flower release. Getting this to happen involves both technical and social/political work. This project represents work on the technical aspect.
 
