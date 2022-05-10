@@ -62,8 +62,10 @@ The following in-progress documents represent the current state of this initiati
 * [_Towards an FOLIO module ecosystem_](doc/ecosystem.md)
 * [_CI for Index Data's FOLIO registry_](doc/ci.md)
 * [_Towards a GitHub-based Index Data CI system_](doc/indexdata-ci.md)
+* [_Where to keep CI builds artifacts of FOLIO modules_](doc/repositories.md)
 
 See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
+
 
 
