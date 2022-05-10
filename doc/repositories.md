@@ -1,4 +1,4 @@
-# Where to keep CI builds artifacts of FOLIO modules
+# Where to keep CI build artifacts of FOLIO modules
 
 <!-- md2toc -l 2 repositories.md -->
 * [Background](#background)
