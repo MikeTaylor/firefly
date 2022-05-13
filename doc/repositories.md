@@ -41,7 +41,7 @@ That leaves the choices of Docker image and NPM package repositories. For both, 
 
 One alternative is to use [GitHub Packages](https://github.com/features/packages) for one or both of Docker images and NPM packages. This neatly keeps the released artifacts alongside the source code that generated them, but involves additional work on the developing organization to set up the repositories.
 
-Organizations can also host their own Docker image repository, NPM package repository or both if they want to avoid dependence on third parties and their downtimes. That said, it's likely that Docker, NPM and GitHub have more experience with and infratructure for high availability than most FOLIO developer organizations.
+Organizations can also host their own Docker image repository, NPM package repository or both if they want to avoid dependence on third parties and their downtimes. That said, it's likely that Docker, NPM and GitHub have more experience with and infrastructure for high availability than most FOLIO developer organizations.
 
 
 ## The grand unified theory
