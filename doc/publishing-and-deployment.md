@@ -9,7 +9,7 @@ We are FOLIO developers who have mostly been writing Node packages in the `@foli
 
 (For this discussion, we assume all code is held in GitHub, as we are using GitHub Actions for automation.)
 
-Using UI modules for this example (though the same applies for back-end modules), five entities (A-D) are involved in the most general case:
+Using UI modules for this example (though the same applies for back-end modules), four entities (A-D) are involved in the most general case:
 
 * A developer works on a Stripes module `@gbv/room-booking` in namespace `@gbv` (Node namespace A) ...
 * ... held in the GitHub repository `folio-de/room-booking` in namespace `folio-de` (GitHub namespace B) ...
@@ -21,7 +21,7 @@ Organization D need not know or care anything about Node namespace A (except as 
 > **TODO.**
 > At present, organization D also needs to know what NPM registry to fetch the Node package from (for a UI module) or what container registry to fetch the Docker container from. Either these links should be contained in the module descriptor fetched from the registry, or a higher-level "FOLIO app" package file should include links into the FOLIO registry, the NPM registry and the Docker registry. XXX file a Jira.
 
-And or all of A, B, C and D might be, but need not be, the same organization. For example consider the case of any Flower Release app, such as `ui-inventory`, being deployed on snapshot:
+Any or all of A, B, C and D might be, but need not be, the same organization. For example consider the case of any Flower Release app, such as `ui-inventory`, being deployed on snapshot:
 * `@folio/inventory` is in FOLIO's Node namespace
 * `folio-org/ui-inventory` is the home of the source code
 * FOLIO's module registry receives the published module descriptor
@@ -37,7 +37,7 @@ For the Harvester Admin app, the Node package `@indexdata/harvester-admin` is in
 > **TODO.**
 > Since the Harvester Admin modules are not going to move into @folio, why do we use a FOLIO Jira? Ask Charlotte
 
-David plans to rework the snapshot-build workflows to autogenerate version numbers rather than requiring the developer to manually push a tag that contains the snapshot number. But note that how we do the workflows right now is matter of policy, not mechanism: nothing in the details of how they presently run ties us to anything in future, or constrains how other ornagizations might do things.
+David plans to rework the snapshot-build workflows to autogenerate version numbers rather than requiring the developer to manually push a tag that contains the snapshot number. But note that how we do the workflows right now is matter of policy, not mechanism: nothing in the details of how they presently run ties us to anything in future, or constrains how other organizations might do things.
 
 
 ## Note on building Stripes bundles
