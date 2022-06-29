@@ -38,7 +38,7 @@ Note that GitHub repositories such as [platform-complete](https://github.com/fol
 
 FOLIO's software imposes certain constraints on which versions of a given module can co-exist in different contexts:
 * An environment can provide many different versions of a given module, including multiple major and minor versions, and versions implementing different interfaces.
-* A tenant can enable multiple versions of a given module, but not multiple module that implement the same version of the same interface (whether different modules that provide different implementations of that interface, or different versions of a single module that both provide the same version of the interface).
+* A tenant can enable multiple versions of a given module, but not multiple modules that implement the same version of the same interface (whether different modules that provide different implementations of that interface, or different versions of a single module that both provide the same version of the interface).
 
 This flexibility enables the provision by a single Okapi cluster of multiple platforms.
 
