@@ -47,6 +47,8 @@ To do deployment right, we need to start thinking more clearly about what is con
 
 Once we have a FOLIO Package format, a list of such files would (conceptually) be a replacement for `install-extras.json`. That suggests we need not only a package format, but a list-of-packages format.
 
-Even assuming this works out, we would still need to think about what kind of file would persistently specify each tenant's selection of the modules (and versions) provided by a system. Or we might want a file to specify each platform supported by the system, and each tenant's persistent configuration would be essentially just a pointer to that file.
+Even assuming this works out, we would still need to think about what kind of file would specify a platform, and a tenant. Presumably there will be a platform descriptor, which specifies all available modules within the platform (from among those provided by the system) and the specific versions. And each tenant descriptor -- rather like an extended version of the present `stripes.config.js` -- would contain a pointer to the relevant platform together with the selection of which of the the platform's modules is to be included, and a few other bits and pieces. We would hope at some point to be able to maintain tenant configs not as static files but in the app-store.
+
+The missing piece to implement platforms is a script to read a tenant config, find the associated platform and, thus informed, enable the appropriate modules for the tenant in Okapi.
 
 
