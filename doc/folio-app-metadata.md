@@ -93,5 +93,7 @@ This simple example FAM file describes the components of the Harvester Admin app
 * Is a linear list of elements enough, or do we need to express dependencies somehow?
 * How will these dependencies, if we add them, play in with those expressed by `okapiInterfaces` in Stripes modules?
 * How do the `package` and `repository` fields interact, and would a single `url` fields be better? (In the example above, we use the former for the UI module and the latter for the backend module).
-    
+* Do we want to embed checksums for security?
+* Do we want some level of certification with machine-readable representations?
+
 
