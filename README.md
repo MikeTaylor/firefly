@@ -7,7 +7,7 @@ This is a project to put FOLIO's foundational modularity to work, enabling a FOL
 * [Manifesto](#manifesto)
 * [Areas of work](#areas-of-work)
 * [Practical steps](#practical-steps)
-* [Related work](#related-work)
+* [Documents](#documents)
 
 
 ## Manifesto
