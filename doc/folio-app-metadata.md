@@ -63,7 +63,8 @@ The `elements` field is an array descriving each of the software elements (UI an
 | `package`     | string | Yes(*)    | The name of the UI or backend package according to the appropriate conventions (i.e. Node package name or Docker container name)
 | `repository`  | string | Yes(*)    | The repository in which the nominated package can be found, if not the standard place
 | `url`         | string |           | May perhaps be used in place of both `package` and `repository` to link directly to the relevant artifact
-| `descriptor`  | string |           | For backend modules, a link to the module descriptor in a FOLIO registry. (For UI modules, the descriptor can be obtained from the NPM package)
+| `descriptor`  | string |           | A link to the module descriptor in a FOLIO registry.
+| `required  `  | boolean| No        | True if the module must be included for the app to function; false if it an optional extra. Default: true
 
 
 ## Example
@@ -84,14 +85,17 @@ This simple example FAM file describes the components of the Harvester Admin app
       "type": "ui",
       "package": "@indexdata/harvester-admin",
       "repository": "https://repository.folio.org/repository/npm-folio/",
-      "url": ""
+      "url": "",
+      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/indexdata-harvester-admin-0.0.1-SNAPSHOT",
+      "required": true
     },
     {
       "type": "backend",
       "package": "",
       "repository": "",
       "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7",
-      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT"
+      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT",
+      "required": true
     }
   ]
 }
@@ -101,7 +105,6 @@ This simple example FAM file describes the components of the Harvester Admin app
 ## Open issues
 
 * There is some duplication in the high-level fields (`name`, `version`, etc.) of what is found in the Node package file for the UI module. This is probably inevitable, as we will in general need to give different information here, especially for complex apps like ERM which contain multiple UI apps.
-* How do we specify what is required and what is optional?
 * Is a linear list of elements enough, or do we need to express dependencies somehow?
 * How will these dependencies, if we add them, play in with those expressed by `okapiInterfaces` in Stripes modules?
 * How do the `package` and `repository` fields interact, and would a single `url` fields be better? (In the example above, we use the former for the UI module and the latter for the backend module).
