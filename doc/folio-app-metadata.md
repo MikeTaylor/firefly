@@ -52,7 +52,7 @@ The file is a JSON object with the following top-level keys:
 | `version`     | string | Yes       | Three-faceted version number, subject to Semantic Versioning, which is the version of the app _as a whole_, not necessarily equal to the version number of any part of it
 | `description` | string |           | Longer human-readable description of the app, written in Markdown
 | `publisher`   | string | Yes       | The organization responsible for publishing the app, expressed as the domain-name of the organization's primary web-site
-| `checksum`    | string | Yes       | The `elements` array below, rendered into canonical string and encrypted using the publisher's private key (see above)
+| `checksum`    | string | Yes       | The `elements` array below, rendered into a minified string form and encrypted using the publisher's private key (see above)
 | `elements`    | array  | Yes       | (see below)
 
 The `elements` field is an array descriving each of the software elements (UI and backend modules) that make up the app. Each entry is a JSON objct with the following keys:
