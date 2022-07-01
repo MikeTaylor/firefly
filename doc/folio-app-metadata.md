@@ -32,6 +32,14 @@ For now, we will limit ourselves to the simple case, but we need to remain aware
 
 These files have two purposes: to present the information needed when browsing and searching apps in the app-store, and to provide the information required to actually install and enable the app.
 
+### Trust
+
+When someone downloads software from Index Data's site, they trust it because they trust the source -- only Index Data personnel can place software on that site. But when anyone can make FOLIO apps available, and when apps from multiple sources appear together in an app-store, how can users know what to trust?
+
+One approach is a top-down certification program, where the organization running the app-store assumes responsibility for a level of quality and security -- much as Apple does with its own app-store. But for FOLIO, we very much want a decentralized approach where there is no single gatekeeper. Instead, we want to give users confidence that an app is published by the organization that it claims, and let them choose which organizations to trust as they do now.
+
+The simplest way to do this is for the publishing organization to use its own private key to encrypt the `elements` section of the app metadata file, and store the result in a "checksum" field. Then users (or more likely their software) can verify that this field correctly decrypts using the organization's public key, which it can publish on its own website or in a well-known key-server.
+
 
 ## File format
 
@@ -41,8 +49,10 @@ The file is a JSON object with the following top-level keys:
 | ------------- | ------ | --------- | ----------- |
 | `name`        | string | Yes       | Machine-readable name of the app, should generally match the filename
 | `displayName` | string |           | Human-readable name of the app, defaults to value of `name` if not specified
-| `version`     | string | Yes       | Three-faceted version number, subject to Semantic Versioning, which is the version of the app _as a whole_, not necessarily equal to the version number of any part of it.
+| `version`     | string | Yes       | Three-faceted version number, subject to Semantic Versioning, which is the version of the app _as a whole_, not necessarily equal to the version number of any part of it
 | `description` | string |           | Longer human-readable description of the app, written in Markdown
+| `publisher`   | string | Yes       | The organization responsible for publishing the app, expressed as the domain-name of the organization's primary web-site
+| `checksum`    | string | Yes       | The `elements` array below, rendered into canonical string and encrypted using the publisher's private key (see above)
 | `elements`    | array  | Yes       | (see below)
 
 The `elements` field is an array descriving each of the software elements (UI and backend modules) that make up the app. Each entry is a JSON objct with the following keys:
@@ -67,6 +77,8 @@ This simple example FAM file describes the components of the Harvester Admin app
   "displayName": "Harvester admin",
   "version": "0.0.1",
   "description": "Admin console for the Index Data Harvester",
+  "publisher": "indexdata.com",
+  "checksum": "1a2b3c4d5e6f7g8h9i0j",
   "elements": [
     {
       "type": "ui",
@@ -78,7 +90,7 @@ This simple example FAM file describes the components of the Harvester Admin app
       "type": "backend",
       "package": "",
       "repository": "",
-      "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7"
+      "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7",
       "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT"
     }
   ]
@@ -93,8 +105,6 @@ This simple example FAM file describes the components of the Harvester Admin app
 * Is a linear list of elements enough, or do we need to express dependencies somehow?
 * How will these dependencies, if we add them, play in with those expressed by `okapiInterfaces` in Stripes modules?
 * How do the `package` and `repository` fields interact, and would a single `url` fields be better? (In the example above, we use the former for the UI module and the latter for the backend module).
-* Do we want to use cyptographic signing so you know who you're trusting?
-* Do we want to embed checksums for security?
 * Do we want some level of certification with machine-readable representations?
 
 
