@@ -66,7 +66,7 @@ The following in-progress documents represent the current state of this initiati
 * [_Separation of roles in module publishing and deployment_](doc/publishing-and-deployment.md)
 * [_Platforms and tenants_](doc/platform-and-tenant.md)
 * [_The FOLIO App Metadata (FAM) file format_](doc/folio-app-metadata.md)
-* [_FOLIO app metadata in module descriptors_](folio-app-module-descriptor.md).
+* [_FOLIO app metadata in module descriptors_](doc/folio-app-module-descriptor.md).
 
 See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
