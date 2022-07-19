@@ -53,7 +53,7 @@ There are several technical and social facilities that would need to be provided
 
 ## Documents
 
-The following in-progress documents represent the current state of this initiative:
+The following in-progress documents represent the current state of this initiative, and should probably be read in order for historical context.
 
 * [_What actually is a FOLIO app?_](doc/what-is-an-app.md)
 * [_How we add apps to FOLIO_](doc/how-we-add-apps.md)
@@ -66,6 +66,7 @@ The following in-progress documents represent the current state of this initiati
 * [_Separation of roles in module publishing and deployment_](doc/publishing-and-deployment.md)
 * [_Platforms and tenants_](doc/platform-and-tenant.md)
 * [_The FOLIO App Metadata (FAM) file format_](doc/folio-app-metadata.md)
+* [_FOLIO app metadata in module descriptors_](doc/folio-app-module-descriptor.md).
 * [_Philosophy of the MAFIA project_](doc/philosophy.md)
 
 See also

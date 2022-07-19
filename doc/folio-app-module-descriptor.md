@@ -6,6 +6,7 @@
 * [Disadvantages](#disadvantages)
 * [Extensions required to the module-descriptor format](#extensions-required-to-the-module-descriptor-format)
 * [Interfaces vs implementations](#interfaces-vs-implementations)
+* [Deployment](#deployment)
 
 
 ## Introduction
@@ -60,16 +61,23 @@ Apart from `name`, which already exists in the module descriptor format, this me
 
 But the `elements` field, too, is problematic. This field in the proposed FAM format indicates not which _interfaces_ an application needs to have fulfilled, but what _modules_ it need: in other words, it is explicitly and deliberately a dependency on implementation rather than on interface. The module descriptor as it stands has no way to nominate depended-upon modules, only interfaces.
 
+Is this a bug or a feature?
+
+On one hand, we want an app-store to be a one-stop shop: you say "I want the Harvester Admin app", and you don't want to be bothered by having to choose which to choose from among the various candidate modules fulfil the relevant interfaces. You want the app packager to have the responsibility of making those choices, so you don't have to. We also want the option of just giving an app file to an installer and expecting it to get on with it, free of further interaction.
+
+On the other hand, maybe sometimes we _do_ want the flexibility to install and app using one of several candidate implementations. If we took this route, the app store would need a way to prompt the user for a choice, and probably to suggest a reasonable default.
+
+At present, this discussion is hard to think through, because it remains difficult to think of even a single example of a module with an interface dependency that can be met by multiple candidate implementations. (There are multiple implementations of the `codex` interface -- `mod-codex-mux`, `mod-codex-inventory`, `mod-codex-ekb` etc. -- but these are used together, not as a choice where one is chosen from among several options.)
+
+So we are left thinking about how we _might_ want to handle the choose-an-implementation scenario when one arises. We certainly hope it will, but it's difficult and maybe dangerous to design the whole app-store around a scenario that does not yet exist. A better strategy is to design it around what does exist now (installing a single app from well-defined components) while being careful to to do this in a way that excludes the possibility of extending our approach when the day comes that we see alternative implementations in the field.
+
+That means that relying only on the existing dependency mechanism of module descriptors (`requires` and `provides`) is not enough, and we need something like the `elements` entry proposed in [The FOLIO App Metadata (FAM) file format](folio-app-metadata.md).
 
 
----
+## Deployment
 
-XXX
+[The existing launch descriptor](https://github.com/folio-org/mod-users/blob/fa523ff0fbc4076f11e863c88149dfed0e7c0dd7/descriptors/ModuleDescriptor-template.json#L493-L515) that can be embedded in a module descriptor may already contain all necessary artifact-location information for backend modules. If so, then the `elements` entries (or whatever equivalent thing we use) will not need to specify `package`, `repository` or `url`, as these will be implied by the module-descriptor.
 
-A way to either depend on an implementation, or make a user choose one
-
-[The existing launch descriptor](https://github.com/folio-org/mod-users/blob/fa523ff0fbc4076f11e863c88149dfed0e7c0dd7/descriptors/ModuleDescriptor-template.json#L493-L515) that can be embedded in a module descriptor may already contain all necessary artifact-location information for backend modules; is that true for UI modules?
-
-It may be useful to also link to [the human-readable page about a GitHub Packages release](https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin?tag=v0.1.0-SNAPSHOT.7).
+Is this also true for UI modules? No, as these lack launch descriptors. And there is nothing in the generated module descriptor of a front-end module that specifies where to obtain the code.
 
 

@@ -105,9 +105,8 @@ This simple example FAM file describes the components of the Harvester Admin app
 ## Open issues
 
 * There is some duplication in the high-level fields (`name`, `version`, etc.) of what is found in the Node package file for the UI module. This is probably inevitable, as we will in general need to give different information here, especially for complex apps like ERM which contain multiple UI apps.
-* Is a linear list of elements enough, or do we need to express dependencies somehow?
-* How will these dependencies, if we add them, play in with those expressed by `okapiInterfaces` in Stripes modules?
+* Is a linear list of elements enough, or do we need to express dependencies somehow? If the latter, how will these dependencies play in with those expressed by `okapiInterfaces` in Stripes modules?
 * How do the `package` and `repository` fields interact, and would a single `url` fields be better? (In the example above, we use the former for the UI module and the latter for the backend module).
-* Do we want some level of certification with machine-readable representations?
+* Do we want some level of quality certification with machine-readable representations?
 
 
