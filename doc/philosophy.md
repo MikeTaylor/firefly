@@ -21,18 +21,11 @@ Since not all contributions are equal, doing this will entails certification. Ea
 
 ## A flexible toolkit
 
-The tools used by 
+The tools used at various stages of the publication, discovery, installation and deployment processes should be furnished separately, with well-defined and documented interfaces, so that they can be used in accordance with whatever procedures an organization prefers. For example, [the FAM format for FOLIO application metadata](folio-app-metadata.md) does not assume that Docker containers are in Dockerhub or that NPM packages are in the the FOLIO NPM repository: it simply accepts URLs for these artifacts and leaves it to packagers to put the packaged materials weherever they wish. Similarly, the forthcoming Platform file format will not assume the use of Kubernetes for deployment.
 
 
 ## A concrete use of the toolkit
 
-XXX
+As the same time, we do not want to fall into the trap of dumping a set of pieces on the community and saying "Go play" with no actionable guidance. Instead, we will [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) the tools by wiring them together into Index Data's own pipeline, using Kubernetes for deployment. This is not intended to be interpreted as The Way to use the tools, but as an exemplar of how it _can_ be used.
 
 
-
-# TO DO
-
-* Mike to rename mod-app-store
-* Mike to test UI module release
-* Wayne to write proposal for platform file
-* Write up list or roles: developer, publisher, certifier, FOLIO admin, tenant admin, user ... more?
