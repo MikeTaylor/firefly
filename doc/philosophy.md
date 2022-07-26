@@ -14,9 +14,9 @@ With this in mind, three principles govern our technical decisions.
 
 ## Open to anyone to contribute
 
-We architecture that we create for app publication, discovery, installation, deployment and enabling should be available on an equal bases to anyone with the requisite technical skills. There should be no single point of control over any of these phases (although of course a given organization may exert control over its own deployments).
+We architecture that we create for app [creation, publication, packaging, discovery, installation, deployment and enabling](roles.md) should be available on an equal basis to anyone with the requisite technical skills. There should be no single point of control over any of these phases (although of course a given organization may exert control over its own deployments).
 
-Since not all contributions are equal, doing this will entails certification. Each application will need to be digitally signed by the organization that vouches for it meeting whatever quality standards they find appropriate. (The FOLIO Technical Council could be one such organization; independent publishes such as Index Data could be others). Other agencies can offer additional certifications.
+Since not all contributions are equal, doing this well entails certification. Each application will need to be digitally signed by the organization that vouches for it meeting whatever quality standards they find appropriate. (The FOLIO Technical Council could be one such organization; independent publishers such as Index Data could be others). Other agencies can offer additional certifications.
 
 
 ## A flexible toolkit
@@ -26,6 +26,6 @@ The tools used at various stages of the publication, discovery, installation and
 
 ## A concrete use of the toolkit
 
-As the same time, we do not want to fall into the trap of dumping a set of pieces on the community and saying "Go play" with no actionable guidance. Instead, we will [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) the tools by wiring them together into Index Data's own pipeline, using Kubernetes for deployment. This is not intended to be interpreted as The Way to use the tools, but as an exemplar of how it _can_ be used.
+As the same time, we do not want to fall into the trap of dumping a set of pieces on the community and saying "Go play" with no actionable guidance. Instead, we will [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) the tools by wiring them together into Index Data's own pipeline, using Kubernetes for deployment. This is not intended to be interpreted as The Way to use the tools, but as an exemplar of how they _can_ be used.
 
 
