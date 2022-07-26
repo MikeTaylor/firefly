@@ -7,7 +7,7 @@
 * [A concrete use of the toolkit](#a-concrete-use-of-the-toolkit)
 
 
-In accordance with [../README.md#manifesto](the project manifesto), our goal is to provide the necessary tooling and documentation to lower the barriers to participation in FOLIO, and to provide the means for a more varied and less monolithic ecosystem of available apps.
+In accordance with [the project manifesto](../README.md#manifesto), our goal is to provide the necessary tooling and documentation to lower the barriers to participation in FOLIO, and to provide the means for a more varied and less monolithic ecosystem of available apps.
 
 With this in mind, three principles govern our technical decisions.
 
