@@ -24,7 +24,7 @@ In the lifecycle of a FOLIO app, there are many different roles, enumerated belo
 
 Apps in FOLIO are composed of [multiple modules together with some metadata](folio-app-metadata.md). Some of the roles pertain to the modules that make up apps, and some to the apps themselves.
 
-In principle, the roles may all be filled by different agents, but often a single agent will fulfil several of the roles: for example, the developer of an app will often also be its packager, and a FOLIO administrator may also administrate one or more tenants. Nevertheless, each role is conceptually separate, and it is important not to conflate them so that we make technical decisions reifying (for example) the notion that a certifier of an app must necessarily be its packager.
+In principle, the roles may all be filled by different agents, but often a single agent will fulfil several of the roles: for example, the developer of a module will often also be its publisher, and a FOLIO administrator may also administrate one or more tenants. Nevertheless, each role is conceptually separate, and it is important not to conflate them so that we make technical decisions reifying (for example) the notion that a certifier of an app must necessarily be its packager.
 
 
 ## The roles
@@ -49,7 +49,7 @@ _The agent who creates an app from its constituent modules_. Doing this entails 
 
 ### App certifier
 
-_An agent who certifies something about an app_. Anyone can create an app file, but there is no guarantee about the quality of a give app; it may have a poorly designed UI, it may be incompletely internationalized, it may lack accessibility features, it may even be straight-up malware. To give users of apps reasonable confidence about the software they are using, some trusted entity needs to certify specific properties of the app, such as that it is fully internationalized.
+_An agent who certifies something about an app_. Anyone can create a FAM file, but there is no guarantee about the quality of a give app; it may have a poorly designed UI, it may be incompletely internationalized, it may lack accessibility features, it may even be straight-up malware. To give users of apps reasonable confidence about the software they are using, some trusted entity needs to certify specific properties of the app, such as that it is fully internationalized.
 
 Any number of certifications can be [embedded in a FAM file](folio-app-metadata.md#TODO), each of them cryptographically signed so that the certifying agency is known with confidence. Users of apps can then decide which certifications they consider dependable based on which agents they trust.
 
@@ -57,6 +57,8 @@ Any number of certifications can be [embedded in a FAM file](folio-app-metadata.
 ### FOLIO administrator
 
 _An agent who is responsible for a complete FOLIO installation_, typically running on multiple nodes and with multiple tenants. The FOLIO administrator is responsible for installing and deploying the selected subset of all available apps. This entails running Docker containers for back-end modules and updating the Stripes bundle to include front-end modules.
+
+Different organizations prefer different ways of running FOLIO: some using Kubernetes, some using Docker Swarm, some running a single Okapi that handles deployment as well as proxying. Different tooling will be required for these and other approaches: the challenge will be designing this tooling such that it can be invoked via well-defined APIs in a tachnology-neutral way.
 
 
 ### Platform administrator
@@ -71,7 +73,6 @@ _An agent who creates and maintains platforms within an installation_. A platfor
 _An agent responsibile for a tenant within an installation_. Each tenant is configured by the selection of one of the platforms furnished by the installation, together with other information such as branding details. Finally, each tenants selects, from the apps provided by its chosen platform, which ones it needs enabled.
 
 (At present, tenants are configured by the `stripes.config.js` file on the client side, and are implicitly defined, one per platform on the server side. This will be made more explicit.)
-Instead of politicians being in office to implement policy, policy positions exist to promote the careers of politicians.
 
 
 
@@ -91,7 +92,7 @@ Are there any other roles that I have missed out in this document?
 
 ### Unopinionated vs. opinionated
 
-The MAFIA approach to providing and using FOLIO apps is deliberately unopinionated. It does not care:
+The MAFIA approach to providing and using FOLIO apps is deliberately unopinionated where possible. It does not care:
 * Whether roles are filled by the same agent or different agents
 * Wherer releases and snapshots are created manually or by a CI tool, or which CI tool is used
 * Where release and snapshot artifacts are posted to
