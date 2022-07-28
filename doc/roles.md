@@ -51,7 +51,7 @@ _The agent who creates an app from its constituent modules_. Doing this entails 
 
 _An agent who certifies something about an app_. Anyone can create a FAM file, but there is no guarantee about the quality of a give app; it may have a poorly designed UI, it may be incompletely internationalized, it may lack accessibility features, it may even be straight-up malware. To give users of apps reasonable confidence about the software they are using, some trusted entity needs to certify specific properties of the app, such as that it is fully internationalized.
 
-Any number of certifications can be [embedded in a FAM file](folio-app-metadata.md#TODO), each of them cryptographically signed so that the certifying agency is known with confidence. Users of apps can then decide which certifications they consider dependable based on which agents they trust.
+Any number of certifications can be [embedded in a FAM file](folio-app-metadata.md#certification), each of them cryptographically signed so that the certifying agency is known with confidence. Users of apps can then decide which certifications they consider dependable based on which agents they trust.
 
 
 ### FOLIO administrator
@@ -120,7 +120,6 @@ An "app store" UI may be useful at multiple levels to people with different role
 
 I need to make the following changes to the document and the example file:
 
-* We need multiple certifications of different types, not just one
 * We should include some indication of what "base system" an app claims compatibility with, which is really just which versions of Stripes and Okapi, but in practice will probably be a flower release.
 
 
