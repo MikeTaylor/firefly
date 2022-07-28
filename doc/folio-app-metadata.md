@@ -107,8 +107,6 @@ This simple example FAM file describes the components of the Harvester Admin app
   "displayName": "Harvester admin",
   "version": "0.0.1",
   "description": "Admin console for the Index Data Harvester",
-  "publisher": "indexdata.com",
-  "checksum": "1a2b3c4d5e6f7g8h9i0j",
   "elements": [
     {
       "type": "ui",
@@ -125,6 +123,18 @@ This simple example FAM file describes the components of the Harvester Admin app
       "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7",
       "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT",
       "required": true
+    }
+  ],
+  "certified": [
+    {
+      "type": "published",
+      "certifier": "indexdata.com",
+      "signature": "1a2b3c4d5e6f7g8h9i0j"
+    },
+    {
+      "type": "ux",
+      "certifier": "samhaeng.com",
+      "signature": "1234567890abcdefghij"
     }
   ]
 }
