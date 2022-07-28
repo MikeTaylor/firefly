@@ -5,7 +5,11 @@
 * [High-level concerns](#high-level-concerns)
     * [What metaformat should we use?](#what-metaformat-should-we-use)
     * [What exactly does this file represent?](#what-exactly-does-this-file-represent)
+    * [Trust](#trust)
 * [File format](#file-format)
+    * [Top level fields](#top-level-fields)
+    * [Elements](#elements)
+    * [Certification](#certification)
 * [Example](#example)
 * [Open issues](#open-issues)
 
@@ -38,10 +42,12 @@ When someone downloads software from Index Data's site, they trust it because th
 
 One approach is a top-down certification program, where the organization running the app-store assumes responsibility for a level of quality and security -- much as Apple does with its own app-store. But for FOLIO, we very much want a decentralized approach where there is no single gatekeeper. Instead, we want to give users confidence that an app is published by the organization that it claims, and let them choose which organizations to trust as they do now.
 
-The simplest way to do this is for the publishing organization to use its own private key to encrypt the `elements` section of the app metadata file, and store the result in a "checksum" field. Then users (or more likely their software) can verify that this field correctly decrypts using the organization's public key, which it can publish on its own website or in a well-known key-server.
+The simplest way to do this is for the publishing organization to use its own private key to encrypt the relevant parts of the app metadata file, and store the result in a signature field. Then users (or more likely their software) can verify that this field correctly decrypts using the organization's public key, which it can publish on its own website or in a well-known key-server.
 
 
 ## File format
+
+### Top level fields
 
 The file is a JSON object with the following top-level keys:
 
@@ -51,9 +57,10 @@ The file is a JSON object with the following top-level keys:
 | `displayName` | string |           | Human-readable name of the app, defaults to value of `name` if not specified
 | `version`     | string | Yes       | Three-faceted version number, subject to Semantic Versioning, which is the version of the app _as a whole_, not necessarily equal to the version number of any part of it
 | `description` | string |           | Longer human-readable description of the app, written in Markdown
-| `publisher`   | string | Yes       | The organization responsible for publishing the app, expressed as the domain-name of the organization's primary web-site
-| `checksum`    | string | Yes       | The `elements` array below, rendered into a minified string form and encrypted using the publisher's private key (see above)
-| `elements`    | array  | Yes       | (see below)
+| `elements`    | array  | Yes       | (see [below](#elements))
+| `certified`   | array  | No        | (see [below](#certification))
+
+### Elements
 
 The `elements` field is an array descriving each of the software elements (UI and backend modules) that make up the app. Each entry is a JSON objct with the following keys:
 
@@ -65,6 +72,28 @@ The `elements` field is an array descriving each of the software elements (UI an
 | `url`         | string |           | May perhaps be used in place of both `package` and `repository` to link directly to the relevant artifact
 | `descriptor`  | string |           | A link to the module descriptor in a FOLIO registry.
 | `required  `  | boolean| No        | True if the module must be included for the app to function; false if it an optional extra. Default: true
+
+### Certification
+
+The `certified` field is an array containing zero or more certifications, attesting to some property of the published app and cryptographically signed by some agent that is willing to take responsibility for the app's possession of the certified property. Each entry is a JSON object with the following keys:
+
+| Name          | Type   | Required? | Description |
+| ------------- | ------ | --------- | ----------- |
+| `type`        | string | Yes       | A short string taken from an enumerated set (see below) indicating what is being certified about the app.
+| `certifier`   | string | Yes       | The organization responsible for certifying the app, expressed as the domain-name of the organization's primary web-site.
+| `signature`   | string | Yes       | A cryptographic signature proving that the nominated organization certified the package. This is formed by taking the app file, removing every element of the `certified` array except the one with type `published` (which is part of its identity), rendering it as a minimized JSON string, and encrypting it with the organization's private key.
+
+Certification types are short strings, and a small controlled vocabulary should be maintained assigning the strings well-known meanings. Types may include:
+
+* `published` -- the package was published by the certifier in question, who takes responsibility for the choice of elements making up the package. This certification would generally be included in every app, while all the others are optional.
+* `ux` -- the certifier asserts that the user interface of the app meets its own guidelines
+* `i18n` -- the app is fully internationalized such that support for a new language can be added by means of a translations file.
+* `a11y` -- the app meets [WCAG 2.1](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines) accessibility guidelines
+* `whitehat` -- the certifying organization has made an attempt to penetrate the security of the app, and asserts that it was unable to do so.
+
+Some of these might appear multiple times with different certifiers: for example, there may be multiple UX certifiers and multiple white-hat security analysts.
+
+The `published` type is special, as described above, in that it is the only part of the certification array that is included in signature. In other words, each additional certification is applied to the app metadata as originally published by its original publisher; but other than that, all certifications are independent, and can be added separately to an existing FAM file.
 
 
 ## Example
@@ -107,6 +136,5 @@ This simple example FAM file describes the components of the Harvester Admin app
 * There is some duplication in the high-level fields (`name`, `version`, etc.) of what is found in the Node package file for the UI module. This is probably inevitable, as we will in general need to give different information here, especially for complex apps like ERM which contain multiple UI modules.
 * Is a linear list of elements enough, or do we need to express dependencies somehow? If the latter, how will these dependencies play in with those expressed by `okapiInterfaces` in Stripes modules?
 * How do the `package` and `repository` fields interact, and would a single `url` fields be better? (In the example above, we use the former for the UI module and the latter for the backend module).
-* Do we want some level of quality certification with machine-readable representations?
 
 
