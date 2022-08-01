@@ -43,11 +43,23 @@ One key observation here is that the platform -- not the tenant, nor individual 
 
 ## The MAFIA proposal
 
-We do not currently propose to introduce a declarative form for describing **installations**, as too many details are dependent on the orchestration software used.
+We do not currently propose to introduce a declarative form for describing **installations**, as too many details are dependent on the orchestration software used. That doesn't mean that this can't be done -- only that it's not part of the problem we're trying to solve right now.
+
+We want to represent **platforms** by single files that capture all relevant information about what apps and modules to includes, and at what versions. We want a human-readable plain text format that works well with version-control to track different versions and merge upstream changes. See below for details.
+
+**Tenants** may need to be represented by a new kind of file, especially if we want to make back-end module selections. On the other hand, it may suffice to continue using `stripes.config.js` files, as the selection of UI modules included in that file implies a corresponding set of back-end modules. One important point to be resolved: since UI modules' dependencies on backend modules is by means of interface dependencies (`okapiInterfaces` in the package file), how would tenant instantiaton code decided which of several candidate modules to choose in provisioning a tenant? e.g. if `ui-users` depends on the `users` interface v15.0, how would the system choose between two candidate modules that both provide that interface (e.g. `mod-users` and `mod-ldap-users`)? In most cases, only one such candidate module will be provided by the platform -- and indeed only on such module will exist at all -- but we cannot assume this will be true in all cases.
+
+**Apps** will of course be represented declaratively by [FAM files](folio-app-metadata.md).
+
+And **Modules** will, as now, be represented by their module descriptors.
 
 
+## Tenant specification files
 
-XXX
+XXX use FAMs
 
+XXX need to add ability for FAM to contain FAM
+
+XXX as with big apps like ReShare or ERM
 
 
