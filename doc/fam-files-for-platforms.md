@@ -4,6 +4,8 @@
 * [Background](#background)
 * [The present situation](#the-present-situation)
 * [The MAFIA proposal](#the-mafia-proposal)
+* [Platform specification files](#platform-specification-files)
+* [Now what?](#now-what)
 
 
 ## Background
@@ -45,7 +47,7 @@ One key observation here is that the platform -- not the tenant, nor individual 
 
 We do not currently propose to introduce a declarative form for describing **installations**, as too many details are dependent on the orchestration software used. That doesn't mean that this can't be done -- only that it's not part of the problem we're trying to solve right now.
 
-We want to represent **platforms** by single files that capture all relevant information about what apps and modules to includes, and at what versions. We want a human-readable plain text format that works well with version-control to track different versions and merge upstream changes. See below for details.
+We want to represent **platforms** by single files that capture all relevant information about what apps and modules to includes, and at what versions. See below for details.
 
 **Tenants** may need to be represented by a new kind of file, especially if we want to make back-end module selections. On the other hand, it may suffice to continue using `stripes.config.js` files, as the selection of UI modules included in that file implies a corresponding set of back-end modules. One important point to be resolved: since UI modules' dependencies on backend modules is by means of interface dependencies (`okapiInterfaces` in the package file), how would tenant instantiaton code decided which of several candidate modules to choose in provisioning a tenant? e.g. if `ui-users` depends on the `users` interface v15.0, how would the system choose between two candidate modules that both provide that interface (e.g. `mod-users` and `mod-ldap-users`)? In most cases, only one such candidate module will be provided by the platform -- and indeed only on such module will exist at all -- but we cannot assume this will be true in all cases.
 
@@ -54,12 +56,20 @@ We want to represent **platforms** by single files that capture all relevant inf
 And **Modules** will, as now, be represented by their module descriptors.
 
 
-## Tenant specification files
+## Platform specification files
 
-XXX use FAMs
+What should platform-specification files look like?
+* They need to specify a list of components to be included in the platform, not just by interface but by nailing down specific modules at specific versions.
+* We want the ability for an organization to certify a platform file that it has created, giving users confidence about its properties.
+* And we want a human-readable plain text format that works well with version-control to track different versions and merge upstream changes. 
 
-XXX need to add ability for FAM to contain FAM
+All of these are qualities of the [FAM file format](folio-app-metadata.md). In short, a platform _is_ an application -- just a very big one. This is actually not as big a leap as it may appear: we have already assumed we will use FAM files to capture large applications such as ReShare (with its Request, Supply, Directory and Update modules) and ERM (with its Agreements, eHoldings, ERM Comparisons and eUsage modules). The extension of this approach to using the format for the whole platform is a natural one.
 
-XXX as with big apps like ReShare or ERM
+Only one significant facility is absent: the ability for a platform specification to include FAM files as well as modules. This is a relatively simple matter, and will shortly be added to the FAM specification.
+
+
+## Now what?
+
+We need to understand what, if anything, the proposed approach will not allow us to achieve. For this, thought will be necessary but experience indispensible. We should, as soon as possible, take an existing FOLIO installation and write a FAM file for one of its platforms, determining what elements may be missing from the file and what software is needed to interpret it.
 
 
