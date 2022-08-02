@@ -21,7 +21,7 @@ To help us ground [the FAM file format](folio-app-metadata.md) in reality, we dr
 
 ### Overview
 
-The are two elements in the Harvester Admin FAM file: a single back-end module and a single UI module. Other FAM files will be more complex, but we will begin with this simple case. Both backend and UI modules will need to be fetched and deployed as part of a single script or UI action run by [the FOLIO administrator](http://localhost:12368/htdocs/links/mafia/doc/roles.md#folio-administrator). Enabling the modules for individual tenants is a separate process which will be handled by the various [tenant administrators](http://localhost:12368/htdocs/links/mafia/doc/roles.md#tenant-admininstrator).
+The are two elements in the Harvester Admin FAM file: a single back-end module and a single UI module. Other FAM files will be more complex, but we will begin with this simple case. Both backend and UI modules will need to be fetched and deployed as part of a single script or UI action run by [the FOLIO administrator](roles.md#folio-administrator). Enabling the modules for individual tenants is a separate process which will be handled by the various [tenant administrators](roles.md#tenant-admininstrator).
 
 
 ### Backend module
