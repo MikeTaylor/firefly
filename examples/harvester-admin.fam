@@ -6,16 +6,12 @@
   "elements": [
     {
       "type": "ui",
-      "package": "@indexdata/harvester-admin",
-      "repository": "https://repository.folio.org/repository/npm-folio/",
-      "url": "",
+      "url": "https://repository.folio.org/repository/npm-folio/@indexdata/harvester-admin",
       "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/indexdata-harvester-admin-0.0.1-SNAPSHOT",
       "required": true
     },
     {
       "type": "backend",
-      "package": "",
-      "repository": "",
       "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7",
       "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT",
       "required": true
