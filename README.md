@@ -71,6 +71,7 @@ The following in-progress documents represent the current state of this initiati
 * [_Philosophy of the MAFIA project_](doc/philosophy.md)
 * [_Roles in the creation and use of FOLIO apps_](doc/roles.md)
 * [_Representing platforms with FAM files_](doc/fam-files-for-platforms.md)
+* [_Installing the Harvester Admin app from the FAM file_](doc/installing-an-app.md)
 
 See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
