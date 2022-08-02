@@ -66,9 +66,9 @@ The `elements` field is an array describing each of the software elements (UI an
 
 | Name          | Type   | Required? | Description |
 | ------------- | ------ | --------- | ----------- |
-| `type`        | string | Yes       | `ui` or `backend`: used so that installer software can determine what to do with the package
-| `url`         | string |           | A direct link to the relevant artifact (NPM package or Docker container)
-| `descriptor`  | string |           | A link to the module descriptor in a FOLIO registry.
+| `type`        | string | Yes       | `ui`, `backend` or `fam`: used so that installer software can determine what to do with the package
+| `url`         | string | Yes       | A direct link to the relevant artifact (NPM package, Docker container, or FAM file)
+| `descriptor`  | string | No        | A link to the module descriptor in a FOLIO registry. Required except when `type` is `fam`.
 | `required  `  | boolean| No        | True if the module must be included for the app to function; false if it an optional extra. Default: true
 
 ### Certification
