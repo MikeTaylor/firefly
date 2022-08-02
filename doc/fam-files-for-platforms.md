@@ -65,7 +65,7 @@ What should platform-specification files look like?
 
 All of these are qualities of the [FAM file format](folio-app-metadata.md). In short, a platform _is_ an application -- just a very big one. This is actually not as big a leap as it may appear: we have already assumed we will use FAM files to capture large applications such as ReShare (with its Request, Supply, Directory and Update modules) and ERM (with its Agreements, eHoldings, ERM Comparisons and eUsage modules). The extension of this approach to using the format for the whole platform is a natural one.
 
-Only one significant facility is absent: the ability for a platform specification to include FAM files as well as modules. This is a relatively simple matter, and will shortly be added to the FAM specification.
+Only one significant facility needed to be added to the FAM specification: the ability for a platform specification to include FAM files as well as modules. This was a relatively simple matter, and is included in the the present version of the FAM specification.
 
 
 ## Now what?
