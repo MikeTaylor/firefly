@@ -1,0 +1,29 @@
+{
+  "name": "@indexdata/mafia-tools",
+  "version": "0.0.1",
+  "description": "Tools to support the FOLIO modularity project MAFIA",
+  "repository": "MikeTaylor/mafia",
+  "bin": {
+    "add-app-to-platform": "./add-app-to-platform/add-app-to-platform.js"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint -f unix .",
+    "test": "echo No tests defined yet",
+    "start": "env LOGCAT=env,descriptor,element,end babel-node --presets=env,stage-2 add-app-to-platform/add-app-to-platform.js ../examples/harvester-admin.fam"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "categorical-logger": "^1.0.0",
+    "ky": "^0.31.1",
+    "node-fetch": "^2.6.7",
+    "node-getopt": "^0.3.2"
+  },
+  "devDependencies": {
+    "@folio/eslint-config-stripes": "^5.2.100061",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.2.0"
+  }
+}

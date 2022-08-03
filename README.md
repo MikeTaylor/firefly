@@ -8,6 +8,7 @@ This is a project to put FOLIO's foundational modularity to work, enabling a FOL
 * [Areas of work](#areas-of-work)
 * [Practical steps](#practical-steps)
 * [Documents](#documents)
+* [Tools](#tools)
 
 
 ## Manifesto
@@ -75,6 +76,11 @@ The following in-progress documents represent the current state of this initiati
 
 See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
+
+
+## Tools
+
+We have some [in-progress work on tooling](tools).
 
 
 
