@@ -7,7 +7,7 @@
     {
       "type": "ui",
       "url": "https://repository.folio.org/repository/npm-folio/@indexdata/harvester-admin",
-      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/indexdata-harvester-admin-0.0.1-SNAPSHOT",
+      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/indexdata_harvester-admin-0.1.0",
       "required": true
     },
     {
