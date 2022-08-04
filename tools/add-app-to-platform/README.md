@@ -9,6 +9,8 @@
 
 [`add-app-to-platform.js`](add-app-to-platform.js) is an attempt to capture the manual steps of adding an app to a platform in code -- at this stage, not so much in the hope that it will be useful, more in an attempt to find out where the gaps are. It is driven by a single FAM file, which may be obtained via the WSAPI provided by [`mod-app-manager`](https://github.com/MikeTaylor/mod-app-manager) or by any other method.
 
+While posting module descriptors to Okapi is always required, the details of how to deploy a module vary, and different organizations use different orchestration mechanisms. This step is therefore done using a plugin (API documentation to follow). The `okapi` plugin uses Okapi's built-in simple deployment mechanisms; others will be added, including `kubernetes`.
+
 
 ## Invocation
 
@@ -18,7 +20,7 @@
 
 The following command-line options are supported:
 
-* `-o` or `--orchestration=STRING` -- Use orchestration plugin (default: kubernetes)
+* `-o` or `--orchestration=STRING` -- Use orchestration plugin (default: okapi)
 * `-V` or `--version` -- Display the version number and exit
 * `-h` or `--help` -- Display a full list of options
 

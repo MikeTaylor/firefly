@@ -12,7 +12,7 @@ const logger = new Logger();
 
 const argv0 = process.argv[1].replace(/.*\//, '');
 const opt = optParser.create([
-  ['o', 'orchestration=STRING', 'Use orchestration plugin', 'kubernetes'],
+  ['o', 'orchestration=STRING', 'Use orchestration plugin', 'okapi'],
   ['V', 'version', 'Show version and exit'],
   ['h', 'help', 'Display this help'],
 ])
