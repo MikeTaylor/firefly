@@ -36,7 +36,7 @@ The following logging categories are used, listed roughly in the order in which 
 * `descriptor` -- logs the module descriptors when they have been downloaded.
 * `sorted` -- logs the order of the descriptors after they have been sorted so as to allow the dependencies of each to be met by a predecessor.
 * `element` -- logs each elements as it is being handled.
-* `end` -- logs the completion of its task. (This is mostly useful in development, to check that asynchronous code has completed.)
+* `end` -- logs the completion of all tasks, noting how many elements of the FAM were handled. (This is mostly useful in development, to check that asynchronous code has completed.)
 
 
 

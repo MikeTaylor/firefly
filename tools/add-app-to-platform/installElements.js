@@ -31,7 +31,7 @@ async function installElements(opt, logger, fam) {
     logger.log('element', element.type, '-->', element.url);
   });
 
-  return 42;
+  return elements.length;
 }
 
 

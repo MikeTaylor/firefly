@@ -37,5 +37,5 @@ maybeEnv('LOGCAT');
 const famFile = opt.argv[0];
 const fam = JSON.parse(fs.readFileSync(famFile).toString());
 installElements(opt, logger, fam).then(res => {
-  logger.log('end', res);
+  logger.log('end', 'handled', res, 'elements');
 });
