@@ -8,15 +8,15 @@ async function gatherDescriptors(logger, elements) {
     const promise = fetch(element.descriptor)
       .then(res => {
         if (!res.ok) throw Error(`fetch(${element.descriptor}) failed with status ${res.status}`);
-        console.log(`fetching ${element.descriptor} ok=${res.ok} with res`, res);
+        // console.log(`fetching ${element.descriptor} ok=${res.ok} with res`, res);
         const json = res.json();
-        console.log(' --> json', json);
+        // console.log(' --> json', json);
         return json;
       });
     p.push(promise);
   }
   const all = await Promise.all(p);
-  console.log(all);
+  console.log(JSON.stringify(all, null, 2));
   return all;
 }
 
