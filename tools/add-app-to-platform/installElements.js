@@ -39,6 +39,7 @@ async function installElements(opt, logger, fam) {
   const pairs = await gatherDescriptors(logger, fam.elements);
   // This is an array of [element, md] pairs.
   // We make a new elements array that includes the downloaded module descriptors
+  // eslint-disable-next-line prefer-object-spread
   const elements = pairs.map(([element, md]) => Object.assign({}, element, {
     md,
     caption: `${element.type}:${element.descriptor.replace(/.*\//, '')}`,

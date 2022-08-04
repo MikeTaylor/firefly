@@ -38,7 +38,7 @@ if (opt.argv.length !== 1) {
 });
 
 ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN', 'LOGGING_CATEGORIES', 'LOGCAT'].forEach(e => {
-  process.env[e] && logger.log('env', `${e}=${process.env[e]}`);
+  if (process.env[e]) logger.log('env', `${e}=${process.env[e]}`);
 });
 
 const famFile = opt.argv[0];
