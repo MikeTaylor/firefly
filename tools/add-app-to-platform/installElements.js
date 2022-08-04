@@ -30,7 +30,7 @@ async function postDescriptor(logger, md) {
     const text = await res.text();
     throw Error(`POST to ${url} failed with status ${res.status}: ${text}`);
   }
-  logger.log('post', `${md.id} (${md.name}`);
+  logger.log('post', `${md.id} (${md.name})`);
 }
 
 
