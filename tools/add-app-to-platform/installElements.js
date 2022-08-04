@@ -39,18 +39,36 @@ async function installElements(opt, logger, fam) {
   const pairs = await gatherDescriptors(logger, fam.elements);
   // This is an array of [element, md] pairs.
   // We make a new elements array that includes the downloaded module descriptors
-  const elements = pairs.map(([element, md]) => Object.assign({}, element, { md }));
+  const elements = pairs.map(([element, md]) => Object.assign({}, element, {
+    md,
+    caption: `${element.type}:${element.descriptor.replace(/.*\//, '')}`,
+  }));
   logger.log('descriptors', elements);
 
   const sorted = sortByDependency(elements);
-  logger.log('sorted', sorted.map(e => `${e.type}:${e.descriptor.replace(/.*\//, '')}`));
+  logger.log('sorted', sorted.map(e => e.caption));
 
+  let ninstalled = 0;
   for (const element of sorted) {
     logger.log('element', element.type, '-->', element.url);
     await postDescriptor(logger, element.md);
+    switch (element.type) {
+      case 'ui':
+        // eslint-disable-next-line no-console
+        console.warn(`WARNING: UI module (${element.caption}) installation not yet handled`);
+        break;
+      case 'backend':
+        // await deployContainer(logger, element);
+        ninstalled++;
+        break;
+      default:
+        // eslint-disable-next-line no-console
+        console.error(`ERROR: module type '${element.type}' (${element.caption}) not supported`);
+        break;
+    }
   }
 
-  return sorted.length;
+  return ninstalled;
 }
 
 

@@ -44,5 +44,5 @@ if (opt.argv.length !== 1) {
 const famFile = opt.argv[0];
 const fam = JSON.parse(fs.readFileSync(famFile).toString());
 installElements(opt, logger, fam).then(res => {
-  logger.log('end', 'handled', res, 'elements');
+  logger.log('end', 'installed', res, 'of', fam.elements.length, 'elements');
 });
