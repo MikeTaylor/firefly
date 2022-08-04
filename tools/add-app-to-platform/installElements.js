@@ -18,11 +18,10 @@ async function gatherDescriptors(logger, elements) {
 
 async function installElements(opt, logger, fam) {
   logger.log('fam', fam);
-
   const descriptors = await gatherDescriptors(logger, fam.elements);
   logger.log('descriptor', descriptors);
-
   const elements = sortByDependency(fam.elements);
+  logger.log('sorted', elements.map(e => `${e.type}:${e.descriptor.replace(/.*\//, '')}`));
 
   elements.forEach(element => {
     logger.log('element', element.type, '-->', element.url);
