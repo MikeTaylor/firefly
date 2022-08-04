@@ -8,23 +8,18 @@ async function gatherDescriptors(logger, elements) {
     const promise = fetch(element.descriptor)
       .then(res => {
         if (!res.ok) throw Error(`fetch(${element.descriptor}) failed with status ${res.status}`);
-        // console.log(`fetching ${element.descriptor} ok=${res.ok} with res`, res);
-        const json = res.json();
-        // console.log(' --> json', json);
-        return json;
+        return res.json().then(res2 => [element, res2]);
       });
     p.push(promise);
   }
-  const all = await Promise.all(p);
-  console.log(JSON.stringify(all, null, 2));
-  return all;
+  return Promise.all(p);
 }
 
 
 async function installElements(opt, logger, fam) {
   logger.log('fam', fam);
 
-  const descriptors = gatherDescriptors(logger, fam.elements);
+  const descriptors = await gatherDescriptors(logger, fam.elements);
   logger.log('descriptor', descriptors);
 
   const elements = sortByDependency(fam.elements);
