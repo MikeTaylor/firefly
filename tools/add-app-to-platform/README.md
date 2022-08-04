@@ -44,7 +44,7 @@ The following logging categories are used, listed roughly in the order in which 
 
 * `env` -- logs relevant environment variables if they are set.
 * `fam` -- logs the FAM (FOLIO application metadata) file that is being used to drive the addition of the app.
-* `descriptor` -- logs the module descriptors when they have been downloaded.
+* `descriptors` -- logs all the the elements as enhanced by downloaded module descriptors.
 * `sorted` -- logs the order of the descriptors after they have been sorted so as to allow the dependencies of each to be met by a predecessor.
 * `element` -- logs each elements as it is being handled.
 * `post` -- logs each successfully posted module descriptor.

@@ -40,7 +40,7 @@ async function installElements(opt, logger, fam) {
   // This is an array of [element, md] pairs.
   // We make a new elements array that includes the downloaded module descriptors
   const elements = pairs.map(([element, md]) => Object.assign({}, element, { md }));
-  logger.log('descriptor', elements);
+  logger.log('descriptors', elements);
 
   const sorted = sortByDependency(elements);
   logger.log('sorted', sorted.map(e => `${e.type}:${e.descriptor.replace(/.*\//, '')}`));
