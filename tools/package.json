@@ -10,12 +10,11 @@
   "scripts": {
     "lint": "eslint -f unix .",
     "test": "echo No tests defined yet",
-    "start": "env LOGCAT=env,sorted,element,end babel-node --presets=env,stage-2 add-app-to-platform/add-app-to-platform.js ../examples/harvester-admin.fam"
+    "start": "env LOGCAT=env,sorted,element,end babel-node --presets=env add-app-to-platform/add-app-to-platform.js ../examples/harvester-admin.fam"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
     "categorical-logger": "^1.0.0",
     "ky": "^0.31.1",
     "node-fetch": "^2.6.7",
