@@ -30,9 +30,16 @@ if (opt.argv.length !== 1) {
   process.exit(1);
 }
 
-const maybeEnv = (e) => process.env[e] && logger.log('env', `${e}=${process.env[e]}`);
-maybeEnv('LOGGING_CATEGORIES');
-maybeEnv('LOGCAT');
+['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
+  if (!process.env[e]) {
+    console.error(`${argv0}: environment variable ${e} undefined`);
+    process.exit(2);
+  }
+});
+
+['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN', 'LOGGING_CATEGORIES', 'LOGCAT'].forEach(e => {
+  process.env[e] && logger.log('env', `${e}=${process.env[e]}`);
+});
 
 const famFile = opt.argv[0];
 const fam = JSON.parse(fs.readFileSync(famFile).toString());

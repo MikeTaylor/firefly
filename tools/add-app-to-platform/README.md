@@ -25,6 +25,17 @@ The following command-line options are supported:
 * `-h` or `--help` -- Display a full list of options
 
 
+## Okapi access
+
+`add-app-to-platform` uses environment variables to control its access to Okapi (URL, tenant, token or user/password) in exactly the same way as [`okapi-curl-env`](https://github.com/folio-org/folio-tools/tree/master/okapi-curl-env) -- in what we can hope will become a standard for command-line tools. In short:
+
+* `OKAPI_URL` (required): the base URL of the Okapi gateway
+* `OKAPI_TENANT` (default `supertenant`): The tenant ID of the tenant of the Okapi service
+* `OKAPI_TOKEN`: An authtoken for Okapi authorization
+
+(Note that we do _not_ presently support `OKAPI_USER` and `OKAPI_PW` as an alternative to `OKAPI_TOKEN`.)
+
+
 ## Logging
 
 `add-app-to-platform` uses [`categorical-logger`](https://github.com/openlibraryenvironment/categorical-logger) for logging. It logs messages in the categories specified by a comma-separated list in the environment variable `LOGGING_CATEGORIES`, or if that is not defined `LOGCAT`.
@@ -36,6 +47,7 @@ The following logging categories are used, listed roughly in the order in which 
 * `descriptor` -- logs the module descriptors when they have been downloaded.
 * `sorted` -- logs the order of the descriptors after they have been sorted so as to allow the dependencies of each to be met by a predecessor.
 * `element` -- logs each elements as it is being handled.
+* `post` -- logs each successfully posted module descriptor.
 * `end` -- logs the completion of all tasks, noting how many elements of the FAM were handled. (This is mostly useful in development, to check that asynchronous code has completed.)
 
 
