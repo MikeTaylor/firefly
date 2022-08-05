@@ -7,12 +7,12 @@
     {
       "type": "ui",
       "url": "https://repository.folio.org/repository/npm-folio/@indexdata/harvester-admin",
-      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/indexdata-harvester-admin-0.0.1-SNAPSHOT",
+      "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/indexdata_harvester-admin-0.1.0",
       "required": true
     },
     {
       "type": "backend",
-      "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7",
+      "url": "ghcr.io/indexdata/mod-harvester-admin:v0.1.0-SNAPSHOT.7",
       "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT",
       "required": true
     }

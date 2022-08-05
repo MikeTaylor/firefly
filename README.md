@@ -1,5 +1,9 @@
 # mafia - Modular Approach to FOLIO In Action
 
+Copyright (C) 2022 Index Data Aps.
+
+These documents and this software are distributed under the terms of the Apache License, Version 2.0. See the file "[LICENSE](LICENSE)" for more information.
+
 This is a project to put FOLIO's foundational modularity to work, enabling a FOLIO installation in practice to support modular use of applications provided by third parties rather than being limited to the modules provided as part of a flower release. Getting this to happen involves both technical and social/political work. This project represents work on the technical aspect.
 
 
@@ -8,6 +12,7 @@ This is a project to put FOLIO's foundational modularity to work, enabling a FOL
 * [Areas of work](#areas-of-work)
 * [Practical steps](#practical-steps)
 * [Documents](#documents)
+* [Tools](#tools)
 
 
 ## Manifesto
@@ -75,6 +80,11 @@ The following in-progress documents represent the current state of this initiati
 
 See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
+
+
+## Tools
+
+We have some [in-progress work on tooling](tools).
 
 
 
