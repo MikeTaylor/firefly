@@ -114,7 +114,7 @@ This simple example FAM file describes the components of the Harvester Admin app
     },
     {
       "type": "backend",
-      "url": "https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin/22772237?tag=v0.1.0-SNAPSHOT.7",
+      "url": "ghcr.io/indexdata/mod-harvester-admin:v0.1.0-SNAPSHOT.7",
       "descriptor": "https://registry.folio-dev.indexdata.com/_/proxy/modules/mod-harvester-admin-0.1.0-SNAPSHOT",
       "required": true
     }
