@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import okapiFetch from '../util/okapiFetch';
 import sortByDependency from './sortByDependency';
 
 
@@ -17,20 +18,10 @@ async function gatherDescriptors(logger, elements) {
 
 
 async function postDescriptor(logger, md) {
-  const url = `${process.env.OKAPI_URL}/_/proxy/modules`;
-  const res = await fetch(url, {
+  return okapiFetch(logger, '_/proxy/modules', {
     method: 'POST',
     body: JSON.stringify(md),
-    headers: {
-      'X-Okapi-Tenant': process.env.OKAPI_TENANT,
-      'X-Okapi-Token': process.env.OKAPI_TOKEN,
-    },
   });
-  if (!res.ok) {
-    const text = await res.text();
-    throw Error(`POST to ${url} failed with status ${res.status}: ${text}`);
-  }
-  logger.log('post', `${md.id} (${md.name})`);
 }
 
 
@@ -59,7 +50,9 @@ async function installElements(opt, logger, fam, plugin) {
         console.warn(`WARNING: UI module (${element.caption}) installation not yet handled`);
         break;
       case 'backend':
-        plugin.deploy(logger, element);
+        // eslint-disable-next-line no-case-declarations
+        const instanceId = await plugin.deploy(logger, element);
+        logger.log('deploy', `${opt.options.deployment} ${element.caption} ->`, instanceId);
         ninstalled++;
         break;
       default:
