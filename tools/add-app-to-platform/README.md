@@ -9,7 +9,7 @@
 
 [`add-app-to-platform.js`](add-app-to-platform.js) is an attempt to capture the manual steps of adding an app to a platform in code -- at this stage, not so much in the hope that it will be useful, more in an attempt to find out where the gaps are. It is driven by a single FAM file, which may be obtained via the WSAPI provided by [`mod-app-manager`](https://github.com/MikeTaylor/mod-app-manager) or by any other method.
 
-While posting module descriptors to Okapi is always required, the details of how to deploy a module vary, and different organizations use different orchestration mechanisms. This step is therefore done using a plugin (API documentation to follow). The `okapi` plugin uses Okapi's built-in simple deployment mechanisms; others will be added, including `kubernetes`.
+While posting module descriptors to Okapi is always required, the details of how to deploy a module vary, and different organizations use different orchestration mechanisms. This step is therefore done using a plugin (XXX API documentation to follow). The `okapi` plugin uses Okapi's built-in simple deployment mechanisms; others will be added, including `kubernetes`.
 
 
 ## Invocation
@@ -20,7 +20,7 @@ While posting module descriptors to Okapi is always required, the details of how
 
 The following command-line options are supported:
 
-* `-o` or `--orchestration=STRING` -- Use orchestration plugin (default: okapi)
+* `-D` or `--deployment=STRING` -- Use deployment plugin (default: okapi)
 * `-V` or `--version` -- Display the version number and exit
 * `-h` or `--help` -- Display a full list of options
 
@@ -48,6 +48,7 @@ The following logging categories are used, listed roughly in the order in which 
 * `sorted` -- logs the order of the descriptors after they have been sorted so as to allow the dependencies of each to be met by a predecessor.
 * `element` -- logs each elements as it is being handled.
 * `post` -- logs each successfully posted module descriptor.
+* `deploy` -- logs messages about orchestration-dependent deployment processes.
 * `end` -- logs the completion of all tasks, noting how many elements of the FAM were handled. (This is mostly useful in development, to check that asynchronous code has completed.)
 
 

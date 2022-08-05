@@ -34,7 +34,7 @@ async function postDescriptor(logger, md) {
 }
 
 
-async function installElements(opt, logger, fam) {
+async function installElements(opt, logger, fam, plugin) {
   logger.log('fam', fam);
   const pairs = await gatherDescriptors(logger, fam.elements);
   // This is an array of [element, md] pairs.
@@ -59,7 +59,7 @@ async function installElements(opt, logger, fam) {
         console.warn(`WARNING: UI module (${element.caption}) installation not yet handled`);
         break;
       case 'backend':
-        // await deployContainer(logger, element);
+        plugin.deploy(logger, element);
         ninstalled++;
         break;
       default:
