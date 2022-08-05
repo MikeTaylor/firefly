@@ -8,9 +8,14 @@ import Logger from '../util/configuredLogger';
 import packageInfo from '../package';
 import installElements from './installElements';
 
-const logger = new Logger();
-
 const argv0 = process.argv[1].replace(/.*\//, '');
+['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
+  if (!process.env[e]) {
+    console.error(`${argv0}: environment variable ${e} undefined`);
+    process.exit(2);
+  }
+});
+
 const opt = optParser.create([
   ['o', 'orchestration=STRING', 'Use orchestration plugin', 'okapi'],
   ['V', 'version', 'Show version and exit'],
@@ -30,13 +35,7 @@ if (opt.argv.length !== 1) {
   process.exit(1);
 }
 
-['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
-  if (!process.env[e]) {
-    console.error(`${argv0}: environment variable ${e} undefined`);
-    process.exit(2);
-  }
-});
-
+const logger = new Logger();
 ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN', 'LOGGING_CATEGORIES', 'LOGCAT'].forEach(e => {
   if (process.env[e]) logger.log('env', `${e}=${process.env[e]}`);
 });
