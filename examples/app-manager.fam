@@ -1,0 +1,14 @@
+{
+  "name": "app-manager",
+  "displayName": "App manager",
+  "version": "0.0.1",
+  "description": "Management of FAM files representing FOLIO apps",
+  "elements": [
+    {
+      "type": "backend",
+      "url": "ghcr.io/miketaylor/mod-app-store:v1.1.0",
+      "descriptor": "http://localhost:12368/htdocs/links/mod-app-manager/target/ModuleDescriptor.json",
+      "required": true
+    }
+  ]
+}

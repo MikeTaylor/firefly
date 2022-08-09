@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "eslint -f unix .",
     "test": "echo No tests defined yet",
-    "start": "env LOGCAT=http,plugin,deploy,end babel-node --presets=env add-app-to-platform/add-app-to-platform.js ../examples/harvester-admin.fam"
+    "start": "env LOGCAT=http,plugin,deploy,end babel-node --presets=env add-app-to-platform/add-app-to-platform.js ../examples/app-manager.fam"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
