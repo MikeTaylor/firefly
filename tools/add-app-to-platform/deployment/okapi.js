@@ -44,9 +44,8 @@ async function deploy(logger, element) {
     }
   });
 
-  // XXX I can't test anything beyond here because I have never got back a good response from Okapi
-  console.log('res =', res); // eslint-disable-line no-console
-  return 42;
+  const location = res.headers.get('location');
+  return location.replace(/.*\//, '');
 }
 
 
