@@ -30,7 +30,7 @@ The are two elements in the Harvester Admin FAM file: a single back-end module a
 
 2. The module needs to be run. Some vendors ignore container builds and compile from source code, but we can ignore that approach as out of scope for now (and support it later, if necessary, by adding a `sourceUrl` field to the FAM file's `elements` entries). The great majority of vendors use the container builds, either with Docker or some equivalent -- but there is still great variation in how this is done due to the use of different orchestration software. At Index Data we use Kubernetes, and will create tooling that uses its WSAPI or command-line tools to start the module, using information from the launch descriptor as necessary (see below).
 
-3. Okapi needs to be told where to find the running module, as deployed on Kubernetes or similar, by posting to  `/_/discovery/modules` a deployment descriptor that relates the module descriptor ID to the URL of the running instance. (It is possible to post multiple deployment descriptor to inform Okapi of multiple running instances, but we don't do that because Kubernetes does its own scaling and present a facade of a single endpoint).
+3. Okapi needs to be told where to find the running module, as deployed on Kubernetes or similar, by posting to  `/_/discovery/modules` a deployment descriptor that relates the module descriptor ID to the URL of the running instance. (It is possible to post multiple deployment descriptor to inform Okapi of multiple running instances, but we don't do that because Kubernetes does its own scaling and presents a facade of a single endpoint).
 
 Note that enabling the module for a tenant is _not_ part of this process: that is the job of the various tenant administrators.
 
