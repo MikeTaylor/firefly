@@ -32,7 +32,7 @@ The are two elements in the Harvester Admin FAM file: a single back-end module a
 
 3. Okapi needs to be told where to find the running module, as deployed on Kubernetes or similar, by posting to  `/_/discovery/modules` a deployment descriptor that relates the module descriptor ID to the URL of the running instance. (It is possible to post multiple deployment descriptor to inform Okapi of multiple running instances, but we don't do that because Kubernetes does its own scaling and presents a facade of a single endpoint).
 
-Note that enabling the module for a tenant is _not_ part of this process: that is the job of the various tenant administrators.
+Once more, note that enabling the module for a tenant is _not_ part of this process: that is the job of the various tenant administrators, and can be done in the Modules tab of the existing Okapi Console in the developer settings.
 
 
 ### UI module
@@ -41,7 +41,7 @@ Note that enabling the module for a tenant is _not_ part of this process: that i
 
 2. The platform's Stripes `package.json` needs to be updated by adding the new module. This needs information that can be taken from the NPM package's own `package.json`. (This is easy to do with `yarn add` but it may be harder to remove packages in this way. Alternatively, we could completely rebuild the platform's package file from scratch every time we make a change.)
 
-3. The newly generate package must have its dependencies downloaded and resolved by `yarn install`, so that they are ready to incorporate into new bundles.
+3. The newly generated package must have its dependencies downloaded and resolved by `yarn install`, so that they are ready to incorporate into new bundles.
 
 Note that we do not rebuild the Stripes bundle as part of this process: that is the job of the various tenant administrators.
 
