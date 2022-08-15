@@ -24,7 +24,7 @@ One of our goals is to define an installation-archiver format for modular applic
 
 We have several nice motivating examples for the kinds of things we want the MAFIA format to support:
 
-* The simplest example would be the eusage-reports work done for the SLUB consortium. This consists only of a UI module (ab event-handling plugin, in fact, [`ui-plugin-eusage-reports`](https://github.com/folio-org/ui-plugin-eusage-reports); and a back-end module, [`mod-eusage-reports`](https://github.com/folio-org/mod-eusage-reports).
+* The simplest example would be the eusage-reports work done for the SLUB consortium. This consists only of a UI module (an event-handling plugin, in fact, [`ui-plugin-eusage-reports`](https://github.com/folio-org/ui-plugin-eusage-reports); and a back-end module, [`mod-eusage-reports`](https://github.com/folio-org/mod-eusage-reports).
 
 * The next simplest is FOLIO's interface to [the Library Data Platform](https://github.com/library-data-platform/ldp). This consists of a UI module and a back-end module, but the latter is dependent on software outside of FOLIO itself -- the LDP database that it interrogates. The MAFIA package may be able to ease integration with LDP databases.
 
@@ -51,7 +51,7 @@ Other requirements can be considered merely desirable, and could perhaps be omit
 
 * Some way to talk about non-FOLIO components, such as the LDP database that is required for the LDP FOLIO app to work. This might also reasonably be used to convey information about FOLIO-based components that are hosted remotely, such as the Shared Inventory app used by (at least some configurations of) ReShare.
 
-* Some way to facilitate installation of non-FOLIO components, such as the OpenURL listened that can be used by an OPAC to feed requests into ReShare.
+* Some way to facilitate installation of non-FOLIO components, such as the OpenURL listener that can be used by an OPAC to feed requests into ReShare.
 
 * The ability to cryptographically sign packages in such a way that those installing them can be confident about their origin.
 
