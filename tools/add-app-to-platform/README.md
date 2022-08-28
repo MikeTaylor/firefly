@@ -108,4 +108,7 @@ Making this change to a running Okapi can be troublesome. Here is one approach t
 
 It should then be possible to deploy Docker-based modules from any source.
 
+#### The `flux` deployment plugin
+
+[Flux](https://fluxcd.io/) watches git repositories that contain Kubernetes configuration, notices when changes are pushed, and instructs Kubernetes to make the necessary changes. It is the way Index Data manages its Kubernetes deployment of FOLIO. The `flux` deployment plugin works by pushing files to a configured git repository for Flux to notice.
 
