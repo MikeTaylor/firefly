@@ -54,7 +54,7 @@ Improvements are there to be made in all three of these areas:
 There are several technical and social facilities that would need to be provided for a fully general FOLIO ecosysem to come into being. These include but may not be limited to the following:
 
 * Addressing task 1 above, work has begin, but is currently stalled, on ways to fix at least some of the "modular monolith" problems ([FOLIO-3253](https://issues.folio.org/browse/FOLIO-3253), [stripes-core pull-request 1101](https://github.com/folio-org/stripes-core/pull/1101)), so that a minimal FOLIO becomes small enough to function as a sensible platform for non-ILS application suites.
-* Addressing task 2 above, we need a FOLIO-app "package" format -- a single concrete thing, broadly analogous to a Debian package, that a vendor can create and deliver, and that a FOLIO implementor can install. This may end up simply being a structured metadata file that points to other release-artifacts packages and includes information about how to deploy them. See [_Thoughts on the MAFIA package format_](doc/package.md). We will need some notion of module certificaton and assessment, so FOLIO implementors who want to install an app can have a degree of confidence in it. This will likely entail cryptographic signing, but also perhaps some form of independent QA, reviews, scores, etc.
+* Addressing task 2 above, we need a FOLIO-app "package" format -- a single concrete thing, broadly analogous to a Debian package, that a vendor can create and deliver, and that a FOLIO implementor can install. This may end up simply being a structured metadata file that points to other release-artifacts packages and includes information about how to deploy them. See [_Thoughts on the Firefly package format_](doc/package.md). We will need some notion of module certificaton and assessment, so FOLIO implementors who want to install an app can have a degree of confidence in it. This will likely entail cryptographic signing, but also perhaps some form of independent QA, reviews, scores, etc.
 * Addressing task 3 above, it would be helpful to have a simple UI to basic Okapi operations such as enabling and disabling modules. This is currently prototyped as [a page in FOLIO's Developer Settings](https://folio-snapshot.dev.folio.org/settings/developer/okapi-console), but might eventually develop in to an "app store" that can be used to install packages.
 
 
@@ -65,7 +65,7 @@ The following in-progress documents represent the current state of this initiati
 * [_MAFIA meeting agendas_](doc/agendas.md) (only for some meetings)
 * [_What actually is a FOLIO app?_](doc/what-is-an-app.md)
 * [_How we add apps to FOLIO_](doc/how-we-add-apps.md)
-* [_Thoughts on the MAFIA package format_](doc/package.md)
+* [_Thoughts on the Firefly package format_](doc/package.md)
 * [_Supporting FOLIO's cluster architecture in the Okapi Console_](doc/cluster-architecture.md)
 * [_Towards an FOLIO module ecosystem_](doc/ecosystem.md)
 * [_CI for Index Data's FOLIO registry_](doc/ci.md)

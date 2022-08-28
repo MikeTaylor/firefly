@@ -1,4 +1,4 @@
-# Thoughts on the MAFIA package format
+# Thoughts on the Firefly package format
 
 
 <!-- md2toc -l 2 package.md -->
@@ -17,20 +17,20 @@
 
 ## Introduction
 
-One of our goals is to define an installation-archiver format for modular applications in FOLIO. This is the "Modular Application for FOLIO: Installation Archive" format, or MAFIA for short. In the present document, we start to consider what it might look like.
+One of our goals is to define an installation-archive format for modular applications in FOLIO. In the present document, we start to consider what it might look like.
 
 
 ## Motivating examples
 
-We have several nice motivating examples for the kinds of things we want the MAFIA format to support:
+We have several nice motivating examples for the kinds of things we want the Firefly format to support:
 
 * The simplest example would be the eusage-reports work done for the SLUB consortium. This consists only of a UI module (an event-handling plugin, in fact, [`ui-plugin-eusage-reports`](https://github.com/folio-org/ui-plugin-eusage-reports); and a back-end module, [`mod-eusage-reports`](https://github.com/folio-org/mod-eusage-reports).
 
-* The next simplest is FOLIO's interface to [the Library Data Platform](https://github.com/library-data-platform/ldp). This consists of a UI module and a back-end module, but the latter is dependent on software outside of FOLIO itself -- the LDP database that it interrogates. The MAFIA package may be able to ease integration with LDP databases.
+* The next simplest is FOLIO's interface to [the Library Data Platform](https://github.com/library-data-platform/ldp). This consists of a UI module and a back-end module, but the latter is dependent on software outside of FOLIO itself -- the LDP database that it interrogates. The Firefly package may be able to ease integration with LDP databases.
 
 * A third example is provided by the resource-sharing application suite [ReShare](https://projectreshare.org/) which runs on the FOLIO platform of Okapi and Stripes. This consists of eight or so UI modules, together accessing a pair of back-end modules, but also integrating with other components such as ILSs' NCIP servers, ISO 18626-compliant ILL services, the ReShare shared index, the VuFind OPAC and ReShare's OpenURL listener. Representing all these components and the relationships between them is a significant challenge.
 
-* A final example is the FOLIO ILS itself, or rather, various configurations of it that contain different subsets of modules. There are instititions that want to run a non-circulating library on FOLIO, for example, or electronic resource management but nothing else. Such FOLIO application suites should be representable in MAFIA format.
+* A final example is the FOLIO ILS itself, or rather, various configurations of it that contain different subsets of modules. There are instititions that want to run a non-circulating library on FOLIO, for example, or electronic resource management but nothing else. Such FOLIO application suites should be representable in Firefly format.
 
 These examples present numerous difficulties, and should suffice to shake out any weaknesses in proposed formats.
 
@@ -47,7 +47,7 @@ Some requirements are absolute. They include:
 
 * Some metadata about the application -- at minimum, human-readable fields like a name and description, but also probably machine-readable fields. Should include an indication of who is responsible for building the package, for QA, etc.
 
-Other requirements can be considered merely desirable, and could perhaps be omitted from early versions of a MAFIA format, to be introduced in later versions. These include:
+Other requirements can be considered merely desirable, and could perhaps be omitted from early versions of a Firefly format, to be introduced in later versions. These include:
 
 * Some way to talk about non-FOLIO components, such as the LDP database that is required for the LDP FOLIO app to work. This might also reasonably be used to convey information about FOLIO-based components that are hosted remotely, such as the Shared Inventory app used by (at least some configurations of) ReShare.
 
@@ -66,23 +66,23 @@ There are no doubt many other requirements that could be added. Recognising and 
 
 ### Foundational assumption
 
-Since a great deal of work goes into ensuring that the foundational components (Okapi, core modules for authentication and suchlike, the Stripes libraries and their dependencies) work together within a flower release, it makes sense to exploit that work. Accordingly, each Mafia package should be targeted to the core of a specific flower release; so there would be, for example, ReShare for Kiwi and ReShare for Lotus. It would be the responsiblity of Mafia-package maintainers to ensure they run on each new flower release.
+Since a great deal of work goes into ensuring that the foundational components (Okapi, core modules for authentication and suchlike, the Stripes libraries and their dependencies) work together within a flower release, it makes sense to exploit that work. Accordingly, each Firefly package should be targeted to the core of a specific flower release; so there would be, for example, ReShare for Kiwi and ReShare for Lotus. It would be the responsiblity of Firefly-package maintainers to ensure they run on each new flower release.
 
 
 ### Package inclusion
 
-Since MAFIA packages will in some sense need to include existing front-end and back-end module packages, we will need to decide whether that is done by physical inclusion or by reference to packages maintained elsewhere. The former approach has drawbacks: increasing file size and redundancy. But it also has the advantages that a package is a complete and immutable object, not dependent on the continuing support of other repositories.
+Since Firefly packages will in some sense need to include existing front-end and back-end module packages, we will need to decide whether that is done by physical inclusion or by reference to packages maintained elsewhere. The former approach has drawbacks: increasing file size and redundancy. But it also has the advantages that a package is a complete and immutable object, not dependent on the continuing support of other repositories.
 
 ### Prior art
 
-The world is full of package formats already, including RPMs, Debian packages, Node packages, and various attempts to unify these. Some effort should be made to survey these existing tools and see to what extent they can meet all the needs of MAFIA packages. Rather than designing something from the ground up, it may be possible to adapt or extend an existing format -- or even to adopt one without change, adding only conventions on how it is used.
+The world is full of package formats already, including RPMs, Debian packages, Node packages, and various attempts to unify these. Some effort should be made to survey these existing tools and see to what extent they can meet all the needs of Firefly packages. Rather than designing something from the ground up, it may be possible to adapt or extend an existing format -- or even to adopt one without change, adding only conventions on how it is used.
 
 
 ## Candidate technologies
 
 ### Zip archives
 
-If we conclude that we need MAFIA packages to physically include front-end and back-end package files (most likely NPMs and Docker containers), then we will need a format suitable for large files and capable of carrying binary payloads. In this case we would most likely follow the [OpenDocument format](https://en.wikipedia.org/wiki/OpenDocument)'s approach of using a ZIP archive or tarball from which individual files can be easily extracted, with a conventional layout of the contents of the archive.
+If we conclude that we need Firefly packages to physically include front-end and back-end package files (most likely NPMs and Docker containers), then we will need a format suitable for large files and capable of carrying binary payloads. In this case we would most likely follow the [OpenDocument format](https://en.wikipedia.org/wiki/OpenDocument)'s approach of using a ZIP archive or tarball from which individual files can be easily extracted, with a conventional layout of the contents of the archive.
 
 ### Structured text
 
