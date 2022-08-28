@@ -1,4 +1,4 @@
-# Philosophy of the MAFIA project
+# Philosophy of the Firefly project
 
 <!-- md2toc -l 2 philosophy.md -->
 * [Open to anyone to contribute](#open-to-anyone-to-contribute)

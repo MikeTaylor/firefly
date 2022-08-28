@@ -75,7 +75,7 @@ The following in-progress documents represent the current state of this initiati
 * [_Platforms and tenants_](doc/platform-and-tenant.md)
 * [_The FOLIO App Metadata (FAM) file format_](doc/folio-app-metadata.md)
 * [_FOLIO app metadata in module descriptors_](doc/folio-app-module-descriptor.md).
-* [_Philosophy of the MAFIA project_](doc/philosophy.md)
+* [_Philosophy of the Firefly project_](doc/philosophy.md)
 * [_Roles in the creation and use of FOLIO apps_](doc/roles.md)
 * [_Representing platforms with FAM files_](doc/fam-files-for-platforms.md)
 * [_Installing the Harvester Admin app from the FAM file_](doc/installing-an-app.md)
