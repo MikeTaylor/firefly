@@ -20,7 +20,7 @@ Where we are as of 28 June 2022:
 * We need to be clear in our minds whether we want snapshots as well as releases. As we recall, John Malconian had a concrete reason for needing a snapshot of `mod-harvester-admin` when setting up the Harvester demo system, but the reasons are no longer clear.
 * Docker containers for `mod-harvester-admin` snapshots are found [in GitHub Packages](https://github.com/indexdata/mod-harvester-admin/pkgs/container/mod-harvester-admin) and module descriptors in [the Index Data FOLIO Registry](https://registry.folio-dev.indexdata.com/_/proxy/modules).
 
-We really want to get a complete MAFIA-based system working before WOLFCon, so that Mike's presentation [FOLIO modularity in practice: seamless deployment of modules from multiple sources](https://wolfcon2022.sched.com/event/14ANV/folio-modularity-in-practice-seamless-deployment-of-modules-from-multiple-sources?linkback=grid) can be about what we _are_ doing rather than what we _plan_ to do.
+We really want to get a complete Firefly-based system working before WOLFCon, so that Mike's presentation [FOLIO modularity in practice: seamless deployment of modules from multiple sources](https://wolfcon2022.sched.com/event/14ANV/folio-modularity-in-practice-seamless-deployment-of-modules-from-multiple-sources?linkback=grid) can be about what we _are_ doing rather than what we _plan_ to do.
 
 
 ## A FOLIO package-file format, redux

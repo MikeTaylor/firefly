@@ -39,7 +39,7 @@ _The agent who creates and maintains a module_. This encompasses both initial de
 
 _The agent who publishes a module_. This means making available the module descriptor of a specific release or snapshot, together with a Docker container (for back-end modules) or an NPM package (for UI modules) representing the code of that release or snapshot. This can be done manually but is more often performed automatically as part of CI -- by Jenkins, GitHub Actions or similar.
 
-Note that the MAFIA tooling does not care how publication is done (manual, Jenkins, etc.), nor where the published artifacts are placed (Dockerhub or an institutional Docker repository; NPM or an institutional RPM repository; GitHub packages; a simple HTTP service). All that is required is that the artifacts can be addressed by a URL.
+Note that the Firefly tooling does not care how publication is done (manual, Jenkins, etc.), nor where the published artifacts are placed (Dockerhub or an institutional Docker repository; NPM or an institutional RPM repository; GitHub packages; a simple HTTP service). All that is required is that the artifacts can be addressed by a URL.
 
 
 ### App packager
@@ -92,7 +92,7 @@ Are there any other roles that I have missed out in this document?
 
 ### Unopinionated vs. opinionated
 
-The MAFIA approach to providing and using FOLIO apps is deliberately unopinionated where possible. It does not care:
+The Firefly approach to providing and using FOLIO apps is deliberately unopinionated where possible. It does not care:
 * Whether roles are filled by the same agent or different agents
 * Wherer releases and snapshots are created manually or by a CI tool, or which CI tool is used
 * Where release and snapshot artifacts are posted to

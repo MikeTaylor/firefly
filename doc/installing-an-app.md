@@ -12,7 +12,7 @@
 
 ## Introduction
 
-To help us ground [the FAM file format](folio-app-metadata.md) in reality, we dry-ran [the Harvester Admin example](https://github.com/MikeTaylor/mafia/blob/master/examples/harvester-admin.fam) and figured out what exactly would need  to be done. The goal is that this information will enable us to write a script that can automate the process.
+To help us ground [the FAM file format](folio-app-metadata.md) in reality, we dry-ran [the Harvester Admin example](https://github.com/MikeTaylor/firefly/blob/master/examples/harvester-admin.fam) and figured out what exactly would need  to be done. The goal is that this information will enable us to write a script that can automate the process.
 
 
 

@@ -3,14 +3,14 @@
 <!-- md2toc -l 2 fam-files-for-platforms.md -->
 * [Background](#background)
 * [The present situation](#the-present-situation)
-* [The MAFIA proposal](#the-mafia-proposal)
+* [The Firefly proposal](#the-firefly-proposal)
 * [Platform specification files](#platform-specification-files)
 * [Now what?](#now-what)
 
 
 ## Background
 
-In the conception of a complete FOLIO installation that has evolved from the MAFIA discussions, a fairly complex multi-level structure has arisen, largely reflecting the reality of how our present ad-hoc structure are structured:
+In the conception of a complete FOLIO installation that has evolved from the Firefly discussions, a fairly complex multi-level structure has arisen, largely reflecting the reality of how our present ad-hoc structure are structured:
 * A FOLIO installaton supports multiple platforms
 * A FOLIO installation also hosts several tenants
 * Each tenant uses one of the available platforms, and selects a subset of the specific apps to include from the superset provided by the chosen platform
@@ -43,7 +43,7 @@ One key observation here is that the platform -- not the tenant, nor individual 
 
 
 
-## The MAFIA proposal
+## The Firefly proposal
 
 We do not currently propose to introduce a declarative form for describing **installations**, as too many details are dependent on the orchestration software used. That doesn't mean that this can't be done -- only that it's not part of the problem we're trying to solve right now.
 

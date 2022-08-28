@@ -17,7 +17,7 @@
 
 ## Background: Flower Releases
 
-In [the MAFIA project](https://github.com/MikeTaylor/mafia), we have been asking the question of how we can make a FOLIO app available to customers and other FOLIO installations in a way other than it being in a flower release. But what does it even mean for a module to be in a flower release?
+In [the Firefly project](https://github.com/MikeTaylor/firefly), we have been asking the question of how we can make a FOLIO app available to customers and other FOLIO installations in a way other than it being in a flower release. But what does it even mean for a module to be in a flower release?
 
 
 ### What is Flower Release actually is
@@ -83,7 +83,7 @@ To bring about this utopian future, we need a concrete sequence of achieveable s
 2. Create an Index Data FOLIO repository by doing the things listed in step 1 ([DEVOPS-945](https://jira.indexdata.com/browse/DEVOPS-945))
 3. Make a "Hello world" FOLIO app, with both UI and server-side modules, and make it available via the Index Data repo ([FOL-37](https://jira.indexdata.com/browse/FOL-37))
 4. Create CI workflows for locally developed FOLIO apps ([DEVOPS-946](https://jira.indexdata.com/browse/DEVOPS-946))
-5. Create demonstration customer environment including MAFIA apps ([DEVOPS-947](https://jira.indexdata.com/browse/DEVOPS-947)). THe heart of this is configuring the Okapi of an Index Data-hosted FOLIO instance to read from this repo as well as the core one
+5. Create demonstration customer environment including Firefly apps ([DEVOPS-947](https://jira.indexdata.com/browse/DEVOPS-947)). THe heart of this is configuring the Okapi of an Index Data-hosted FOLIO instance to read from this repo as well as the core one
 6. Establish that this means of module delivery works as intended, fixing any the problems uncovered along the way.
 7. Demo the concept of a non-Flower FOLIO repository to the community, and gather support for the decentralization intiative.
 8. Use the Index Data FOLIO repo to host some real work done for a real customer -- for example, Duke's LTI Courses app, if we take over maintenance of that now their developer has moved on.

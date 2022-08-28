@@ -11,7 +11,7 @@
 
 ## Introduction
 
-The proposed [FOLIO App Metadata (FAM) file format](folio-app-metadata.md) was generally well received by the MAFIA working group, but one important question was raised: do we need a new format at all, or can we just extend the existing [module descriptor format](https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json)?
+The proposed [FOLIO App Metadata (FAM) file format](folio-app-metadata.md) was generally well received by the Firefly working group, but one important question was raised: do we need a new format at all, or can we just extend the existing [module descriptor format](https://github.com/folio-org/okapi/blob/master/okapi-core/src/main/raml/ModuleDescriptor.json)?
 
 If we take this approach, then as well as being used to inform Okapi of machine-readable properties of modules, these descriptors will also be used by the App Store to advertise high-level modules (i.e. "apps") to human users and by deployment software to obtain, install and start them.
 

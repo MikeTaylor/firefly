@@ -9,7 +9,7 @@
 
 ## Context
 
-Today's MAFIA meeting (Tuesday 8 March 2022) was about setting up CI (continuous integration) for FOLIO modules that are destined to be published in Index Data's FOLIO registry rather than the existing monolithic FOLIO registry used by flower releases. The long game is that the approach we end up taking here can be a model for other institutions that want to set up their own FOLIO registries.
+Today's Firefly meeting (Tuesday 8 March 2022) was about setting up CI (continuous integration) for FOLIO modules that are destined to be published in Index Data's FOLIO registry rather than the existing monolithic FOLIO registry used by flower releases. The long game is that the approach we end up taking here can be a model for other institutions that want to set up their own FOLIO registries.
 
 
 ## Requirements

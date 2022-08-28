@@ -21,7 +21,7 @@ On some rough level, we all know what we mean when we talk about an "app" in FOL
 
 But this description handwaves away a lot of complexity, not least in the "devops wizardry". Until we can lay out what steps are required to install a FOLIO app, we can't really say we know what an app _is_. And when the wizardly is complex and time-consuming, we may not really have a boundaried notion of what we mean by an app at all.
 
-One of the goals of [the MAFIA project](https://github.com/MikeTaylor/mafia) is to make it simple to add an app to an existing FOLIO installation. To do this we need to be able to state clearly what are the things that make up the app, and what steps need to be performed in order to [add and enable the app](how-we-add-apps.md). This document aims to enumerate these things so we can start thinking in a more informed way about [what it would take to package them](package.md).
+One of the goals of [the Firefly project](https://github.com/MikeTaylor/firefly) is to make it simple to add an app to an existing FOLIO installation. To do this we need to be able to state clearly what are the things that make up the app, and what steps need to be performed in order to [add and enable the app](how-we-add-apps.md). This document aims to enumerate these things so we can start thinking in a more informed way about [what it would take to package them](package.md).
 
 
 

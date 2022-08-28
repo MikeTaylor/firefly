@@ -18,7 +18,7 @@ and
 [`mod-harvester-admin`](https://github.com/indexdata/mod-harvester-admin) (and backend module).
 
 We have two goals in this work:
-1. As a crucial part of [the MAFIA project](../README.md) to establish [an ecosystem for FOLIO modules](ecosystem.md) not dependent entirely on flower releases.
+1. As a crucial part of [the Firefly project](../README.md) to establish [an ecosystem for FOLIO modules](ecosystem.md) not dependent entirely on flower releases.
 2. As proof of concept for a CI approach that Index Data can use more broadly for its own projects.
 
 

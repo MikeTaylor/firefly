@@ -16,7 +16,7 @@
 
 ## Introduction
 
-[Broader discussions](https://github.com/MikeTaylor/mafia/blob/master/README.md#documents) about FOLIO modularity have brought us to the point where we need to make a concrete proposal for what the FOLIO App Metadata file might look like -- partly in the hope that we can actually implement it soon, but more immediately because writing down specifics will surface problems. This document is a proposal for discussion.
+[Broader discussions](https://github.com/MikeTaylor/firefly/blob/master/README.md#documents) about FOLIO modularity have brought us to the point where we need to make a concrete proposal for what the FOLIO App Metadata file might look like -- partly in the hope that we can actually implement it soon, but more immediately because writing down specifics will surface problems. This document is a proposal for discussion.
 
 
 ## High-level concerns

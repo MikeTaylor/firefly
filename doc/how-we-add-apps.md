@@ -77,7 +77,7 @@ Typically, the install operation will perform only enable operations, but if we 
 
 ## The big question: what actually is a FOLIO module?
 
-The relevance of all of this to the MAFIA initiative is this: which parts of this process are functions of the module being installed, and which are functions of the environment it's being installed into?
+The relevance of all of this to the Firefly initiative is this: which parts of this process are functions of the module being installed, and which are functions of the environment it's being installed into?
 
 Whatever a packaged FOLIO app looks like, we will need it to capture all of the former aspects, but to omit all the latter. For example, a packaged app cannot contain anything specific to Kubernetes, because that package may be installed on an environment that does not use Kubernetes.
 
