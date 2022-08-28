@@ -1,10 +1,12 @@
-# mafia - Modular Approach to FOLIO In Action
+# firefly - Making FOLIO modularity work in practice
 
 Copyright (C) 2022 Index Data Aps.
 
 These documents and this software are distributed under the terms of the Apache License, Version 2.0. See the file "[LICENSE](LICENSE)" for more information.
 
 This is a project to put FOLIO's foundational modularity to work, enabling a FOLIO installation in practice to support modular use of applications provided by third parties rather than being limited to the modules provided as part of a flower release. Getting this to happen involves both technical and social/political work. This project represents work on the technical aspect.
+
+Note that this project was previously known as MAFIA (Modular Approach to FOLIO In Action). Some references to this older name may survive here and elsewhere.
 
 
 <!-- md2toc -l 2 README.md -->
