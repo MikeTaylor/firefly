@@ -1,4 +1,4 @@
-# MAFIA meeting agendas
+# Firefly meeting agendas
 
 In reverse chronological order
 

@@ -62,7 +62,7 @@ There are several technical and social facilities that would need to be provided
 
 The following in-progress documents represent the current state of this initiative, and should probably be read in order for historical context.
 
-* [_MAFIA meeting agendas_](doc/agendas.md) (only for some meetings)
+* [_Firefly meeting agendas_](doc/agendas.md) (only for some meetings)
 * [_What actually is a FOLIO app?_](doc/what-is-an-app.md)
 * [_How we add apps to FOLIO_](doc/how-we-add-apps.md)
 * [_Thoughts on the Firefly package format_](doc/package.md)
