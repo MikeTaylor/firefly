@@ -1,8 +1,8 @@
 {
-  "name": "@indexdata/mafia-tools",
+  "name": "@indexdata/firefly-tools",
   "version": "0.0.1",
-  "description": "Tools to support the FOLIO modularity project MAFIA",
-  "repository": "MikeTaylor/mafia",
+  "description": "Tools to support the FOLIO modularity project Firefly",
+  "repository": "MikeTaylor/firefly",
   "bin": {
     "add-app-to-platform": "./add-app-to-platform/add-app-to-platform.js"
   },
