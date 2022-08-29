@@ -4,7 +4,8 @@
 
 import optParser from 'node-getopt';
 import Logger from './util/configuredLogger';
-import packageInfo from './package';
+
+import version from './version';
 import addApp from './add-app';
 
 const argv0 = process.argv[1].replace(/.*\//, '');
@@ -36,7 +37,7 @@ const logger = new Logger();
 const cmd = opt.argv[0];
 switch (cmd) {
 case 'version':
-  console.log(`${argv0} version ${packageInfo.version}`, packageInfo);
+  version(argv0, logger, opt);
   break;
 case 'add-app':
   addApp(argv0, logger, opt);
