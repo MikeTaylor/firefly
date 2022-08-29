@@ -8,7 +8,7 @@
 
 ## Overview
 
-This directory contains a command-line tool, `folioctl`, that provides practical support for the Firefly concepts. It is invoked with one of several supported subcommand, in the spirit of commands like `apachectl and kubectl` which are invoked like `apachectl start` and `apachectl graceful`.
+This directory contains a command-line tool, `folioctl`, that provides practical support for the Firefly concepts. It is invoked with one of several supported subcommand, in the spirit of commands like `apachectl` and `kubectl`, which are invoked like `apachectl start` and `apachectl graceful`.
 
 
 
