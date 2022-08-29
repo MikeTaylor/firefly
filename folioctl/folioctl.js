@@ -22,9 +22,15 @@ const opt = optParser.create([
            '\nCommands:\n' +
            Object.keys(commands).map(x => `  ${x}: ${commands[x].desc}`).join('\n') +
            '\n\nOptions:\n[[OPTIONS]]\n')
-  .bindHelp()
-  .parseSystem();
+  .bindHelp();
 
+opt.error(e => {
+  console.info(`${argv0}: ${e.message}`);
+  opt.showHelp();
+  return process.exit(1);
+});
+
+opt.parseSystem();
 if (opt.argv.length < 2) {
   console.info(opt.getHelp());
   process.exit(1);
