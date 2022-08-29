@@ -6,7 +6,7 @@ import fs from 'fs';
 import optParser from 'node-getopt';
 import Logger from './util/configuredLogger';
 import packageInfo from './package';
-import installElements from './add-app-to-platform/installElements';
+import installElements from './add-app/installElements';
 
 const argv0 = process.argv[1].replace(/.*\//, '');
 ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
@@ -57,7 +57,7 @@ function addApp(opt) {
   let plugin;
   try {
     // eslint-disable-next-line import/no-dynamic-require,global-require
-    plugin = require(`./add-app-to-platform/deployment/${pluginName}`);
+    plugin = require(`./add-app/deployment/${pluginName}`);
   } catch (e) {
     if (e.code !== 'MODULE_NOT_FOUND') throw e;
     console.error(`${argv0}: deployment plugin '${pluginName}' unknown`);
