@@ -21,8 +21,7 @@ const opt = optParser.create([
   .setHelp(`Usage:\n  ${argv0} <cmd> [OPTIONS] <famFile>\n` +
            '\nCommands:\n' +
            Object.keys(commands).map(x => `  ${x}: ${commands[x].desc}`).join('\n') +
-           '\n\nOptions:\n[[OPTIONS]]\n'
-          )
+           '\n\nOptions:\n[[OPTIONS]]\n')
   .bindHelp()
   .parseSystem();
 

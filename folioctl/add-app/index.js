@@ -1,5 +1,5 @@
 import fs from 'fs';
-import installElements from './installElements'
+import installElements from './installElements';
 
 function addApp(argv0, logger, opt) {
   const pluginName = opt.options.deployment;
@@ -9,6 +9,7 @@ function addApp(argv0, logger, opt) {
     plugin = require(`./deployment/${pluginName}`);
   } catch (e) {
     if (e.code !== 'MODULE_NOT_FOUND') throw e;
+    // eslint-disable-next-line no-console
     console.error(`${argv0}: deployment plugin '${pluginName}' unknown`);
     process.exit(4);
   }
