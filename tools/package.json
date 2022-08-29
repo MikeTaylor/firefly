@@ -4,13 +4,14 @@
   "description": "Tools to support the FOLIO modularity project Firefly",
   "repository": "MikeTaylor/firefly",
   "bin": {
-    "add-app-to-platform": "./add-app-to-platform/add-app-to-platform.js"
+    "add-app-to-platform": "./add-app-to-platform/add-app-to-platform.js",
+    "folioctl": "./add-app-to-platform/folioctl.js"
   },
   "license": "Apache-2.0",
   "scripts": {
     "lint": "eslint -f unix .",
     "test": "echo No tests defined yet",
-    "start": "env LOGCAT=http,plugin,deploy,end babel-node --presets=env add-app-to-platform/add-app-to-platform.js ../examples/app-manager.fam"
+    "start": "env LOGCAT=http,plugin,deploy,end babel-node --presets=env add-app-to-platform/folioctl.js add-app ../examples/app-manager.fam"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
