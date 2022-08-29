@@ -1,5 +1,5 @@
 {
-  "name": "@indexdata/firefly-tools",
+  "name": "@indexdata/folioctl",
   "version": "0.0.1",
   "description": "Tools to support the FOLIO modularity project Firefly",
   "repository": "MikeTaylor/firefly",
