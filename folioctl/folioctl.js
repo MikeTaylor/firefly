@@ -18,7 +18,11 @@ const opt = optParser.create([
   ['D', 'deployment=STRING', 'Use add-app deployment plugin', 'okapi'],
   ['h', 'help', 'Display this help'],
 ])
-  .setHelp(`Usage:\n  ${argv0} <cmd> [OPTIONS] <famFile>\n\nOptions:\n[[OPTIONS]]\n`)
+  .setHelp(`Usage:\n  ${argv0} <cmd> [OPTIONS] <famFile>\n` +
+           '\nCommands:\n' +
+           Object.keys(commands).map(x => `  ${x}: ${commands[x].desc}`).join('\n') +
+           '\n\nOptions:\n[[OPTIONS]]\n'
+          )
   .bindHelp()
   .parseSystem();
 
