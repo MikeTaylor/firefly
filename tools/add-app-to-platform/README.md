@@ -112,3 +112,10 @@ It should then be possible to deploy Docker-based modules from any source.
 
 [Flux](https://fluxcd.io/) watches git repositories that contain Kubernetes configuration, notices when changes are pushed, and instructs Kubernetes to make the necessary changes. It is the way Index Data manages its Kubernetes deployment of FOLIO. The `flux` deployment plugin works by pushing files to a configured git repository for Flux to notice.
 
+
+
+## Templating
+
+XXX Use https://github.com/cykerway/jinja-cli
+
+
