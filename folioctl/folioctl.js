@@ -9,18 +9,11 @@ import version from './version';
 import addApp from './add-app';
 
 const commands = {
-  'version': version,
-  'add-app': addApp,
+  'version': { fn: version, okapi: false, desc: 'Print version number' },
+  'add-app': { fn: addApp, okapi: true, desc: 'Add applications specified by nominated FAM file' },
 };
 
 const argv0 = process.argv[1].replace(/.*\//, '');
-['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
-  if (!process.env[e]) {
-    console.error(`${argv0}: environment variable ${e} undefined`);
-    process.exit(2);
-  }
-});
-
 const opt = optParser.create([
   ['D', 'deployment=STRING', 'Use add-app deployment plugin', 'okapi'],
   ['h', 'help', 'Display this help'],
@@ -46,4 +39,13 @@ if (!cmd) {
   process.exit(3);
 }
 
-cmd(argv0, logger, opt);
+if (cmd.okapi) {
+  ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
+    if (!process.env[e]) {
+      console.error(`${argv0}: environment variable ${e} undefined`);
+      process.exit(2);
+    }
+  });
+}
+
+cmd.fn(argv0, logger, opt);
