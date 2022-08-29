@@ -16,8 +16,7 @@ This directory contains a command-line tool, `folioctl`, that provides practical
 * [`package.json`](package.json) describes `folioctl` for packaging, and specifies dependencies
 * [`folioctl.js`](folioctl.js) is the main function which invokes specific commands
 * [`util`](util) contains shared utility code
-*
-[`version`](version),
+* [`version`](version),
 [`add-app`](add-app)
 implement the similiarly named commands. See separate README.md files in these directories.
 
