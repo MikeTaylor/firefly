@@ -25,8 +25,8 @@ const opt = optParser.create([
   .bindHelp();
 
 opt.error(e => {
-  console.info(`${argv0}: ${e.message}`);
-  opt.showHelp();
+  console.error(`${argv0}: ${e.message}`);
+  console.error(opt.getHelp());
   return process.exit(1);
 });
 
@@ -45,6 +45,7 @@ const cmdName = opt.argv[0];
 const cmd = commands[cmdName];
 if (!cmd) {
   console.error(`${argv0}: unknown command '${cmdName}'`);
+  console.error(opt.getHelp());
   process.exit(3);
 }
 
