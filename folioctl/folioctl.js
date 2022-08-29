@@ -46,14 +46,14 @@ const cmd = commands[cmdName];
 if (!cmd) {
   console.error(`${argv0}: unknown command '${cmdName}'`);
   console.error(opt.getHelp());
-  process.exit(3);
+  process.exit(2);
 }
 
 if (cmd.okapi) {
   ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
     if (!process.env[e]) {
       console.error(`${argv0}: environment variable ${e} undefined`);
-      process.exit(2);
+      process.exit(3);
     }
   });
 }
