@@ -8,6 +8,11 @@ import Logger from './util/configuredLogger';
 import version from './version';
 import addApp from './add-app';
 
+const commands = {
+  'version': version,
+  'add-app': addApp,
+};
+
 const argv0 = process.argv[1].replace(/.*\//, '');
 ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
   if (!process.env[e]) {
@@ -34,16 +39,11 @@ const logger = new Logger();
   if (process.env[e]) logger.log('env', `${e}=${process.env[e]}`);
 });
 
-const cmd = opt.argv[0];
-switch (cmd) {
-case 'version':
-  version(argv0, logger, opt);
-  break;
-case 'add-app':
-  addApp(argv0, logger, opt);
-  break;
-default:
-  console.error(`${argv0}: unknown command '${cmd}'`);
+const cmdName = opt.argv[0];
+const cmd = commands[cmdName];
+if (!cmd) {
+  console.error(`${argv0}: unknown command '${cmdName}'`);
   process.exit(3);
-  break;
 }
+
+cmd(argv0, logger, opt);
