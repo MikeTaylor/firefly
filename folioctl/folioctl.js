@@ -17,18 +17,12 @@ const argv0 = process.argv[1].replace(/.*\//, '');
 });
 
 const opt = optParser.create([
-  ['D', 'deployment=STRING', 'Use deployment plugin', 'okapi'],
-  ['V', 'version', 'Show version and exit'],
+  ['D', 'deployment=STRING', 'Use add-app deployment plugin', 'okapi'],
   ['h', 'help', 'Display this help'],
 ])
   .setHelp(`Usage:\n  ${argv0} <cmd> [OPTIONS] <famFile>\n\nOptions:\n[[OPTIONS]]\n`)
   .bindHelp()
   .parseSystem();
-
-if (opt.options.version) {
-  console.log(`${argv0} version ${packageInfo.version}`, packageInfo);
-  process.exit(0);
-}
 
 if (opt.argv.length < 2) {
   console.info(opt.getHelp());
@@ -42,6 +36,9 @@ const logger = new Logger();
 
 const cmd = opt.argv[0];
 switch (cmd) {
+case 'version':
+  console.log(`${argv0} version ${packageInfo.version}`, packageInfo);
+  break;
 case 'add-app':
   addApp(opt);
   break;
