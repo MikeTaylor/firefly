@@ -2,11 +2,10 @@
 
 /* eslint-disable no-console */
 
-import fs from 'fs';
 import optParser from 'node-getopt';
 import Logger from './util/configuredLogger';
 import packageInfo from './package';
-import installElements from './add-app/installElements';
+import addApp from './add-app';
 
 const argv0 = process.argv[1].replace(/.*\//, '');
 ['OKAPI_URL', 'OKAPI_TENANT', 'OKAPI_TOKEN'].forEach(e => {
@@ -40,30 +39,10 @@ case 'version':
   console.log(`${argv0} version ${packageInfo.version}`, packageInfo);
   break;
 case 'add-app':
-  addApp(opt);
+  addApp(argv0, logger, opt);
   break;
 default:
   console.error(`${argv0}: unknown command '${cmd}'`);
   process.exit(3);
   break;
-}
-
-
-function addApp(opt) {
-  const pluginName = opt.options.deployment;
-  let plugin;
-  try {
-    // eslint-disable-next-line import/no-dynamic-require,global-require
-    plugin = require(`./add-app/deployment/${pluginName}`);
-  } catch (e) {
-    if (e.code !== 'MODULE_NOT_FOUND') throw e;
-    console.error(`${argv0}: deployment plugin '${pluginName}' unknown`);
-    process.exit(4);
-  }
-
-  const famFile = opt.argv[1];
-  const fam = JSON.parse(fs.readFileSync(famFile).toString());
-  installElements(opt, logger, fam, plugin).then(res => {
-    logger.log('end', 'installed', res, 'of', fam.elements.length, 'elements');
-  });
 }
