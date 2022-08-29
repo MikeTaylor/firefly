@@ -20,9 +20,10 @@ This directory contains a command-line tool, `folioctl`, that provides practical
 * [`package.json`](package.json) describes `folioctl` for packaging, and specifies dependencies
 * [`folioctl.js`](folioctl.js) is the main function which invokes specific commands
 * [`util`](util) contains shared utility code
-* [`version`](version),
-[`add-app`](add-app)
-implement the similiarly named commands. See separate README.md files in these directories.
+* [`cmd`](cmd) is a directory containing the various [command plugins](#command-apis) -- for example,
+[`version`](version),
+[`add-app`](add-app).
+See the separate `README.md` files in the command directories.
 
 
 ## Invocation
@@ -67,10 +68,17 @@ The following logging categories are used, listed roughly in the order in which 
 * `end` -- logs the completion of all tasks, noting how many elements of the FAM were handled. (This is mostly useful in development, to check that asynchronous code has completed.)
 
 
-
 ## Command API
 
-XXX to do
+Each command is implemented by a plugin in its own directory, fronted by an `index.js` file which exports a single object. That object contains three elements:
+* `fn`: the function that is executed in order to run to command. This function will be invoked with three arguments:
+  * `argv0`: the name of the program being run (usually `folioctl` or `folioctl.js`), to be used in error messages.
+  * `logger`: a configured login object, as discussed above.
+  * `opt`: the parsed options object from `node-getops`, containing the unused command-line arguments that specify how to execute the command -- for example, the name of the FAM file to be added by the	`add-app` command.
+* `okapi`: a boolean indicating whether not the command needs to run Okapi commands. (If this is true, then `folioctl` will refused to run unless the necessary environment variables are set.)
+* `desc`: a short human-readable description of what the command does.
+
+The return-value of the command function is ignored.
 
 
 ## See also
