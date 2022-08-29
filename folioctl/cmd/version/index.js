@@ -1,4 +1,4 @@
-import packageInfo from '../package';
+import packageInfo from '../../package';
 
 function version(argv0, _logger, _opt) {
   // eslint-disable-next-line no-console

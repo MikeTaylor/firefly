@@ -1,4 +1,4 @@
-import okapiFetch from '../../util/okapiFetch';
+import okapiFetch from '../../../util/okapiFetch';
 
 
 function makeLaunchDescriptor(element) {

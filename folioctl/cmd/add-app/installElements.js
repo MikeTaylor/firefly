@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import okapiFetch from '../util/okapiFetch';
+import okapiFetch from '../../util/okapiFetch';
 import sortByDependency from './sortByDependency';
 
 

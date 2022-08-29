@@ -5,8 +5,8 @@
 import optParser from 'node-getopt';
 import Logger from './util/configuredLogger';
 
-import version from './version';
-import addApp from './add-app';
+import version from './cmd/version';
+import addApp from './cmd/add-app';
 
 const commands = {
   'version': { fn: version, okapi: false, desc: 'Print version number' },
