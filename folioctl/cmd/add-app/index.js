@@ -21,4 +21,8 @@ function addApp(argv0, logger, opt) {
   });
 }
 
-export default addApp;
+export default {
+  fn: addApp,
+  okapi: true,
+  desc: 'Add applications specified by nominated FAM file',
+};

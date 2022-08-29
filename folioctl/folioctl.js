@@ -5,12 +5,12 @@
 import optParser from 'node-getopt';
 import Logger from './util/configuredLogger';
 
-import version from './cmd/version';
-import addApp from './cmd/add-app';
+import versionCommand from './cmd/version';
+import addAppCommand from './cmd/add-app';
 
 const commands = {
-  'version': { fn: version, okapi: false, desc: 'Print version number' },
-  'add-app': { fn: addApp, okapi: true, desc: 'Add applications specified by nominated FAM file' },
+  'version': versionCommand,
+  'add-app': addAppCommand,
 };
 
 const argv0 = process.argv[1].replace(/.*\//, '');

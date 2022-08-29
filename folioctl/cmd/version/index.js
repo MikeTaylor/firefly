@@ -5,4 +5,8 @@ function version(argv0, _logger, _opt) {
   console.log(`${argv0} version ${packageInfo.version}`, packageInfo);
 }
 
-export default version;
+export default {
+  fn: version,
+  okapi: false,
+  desc: 'Print version number',
+};
