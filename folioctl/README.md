@@ -21,8 +21,8 @@ This directory contains a command-line tool, `folioctl`, that provides practical
 * [`folioctl.js`](folioctl.js) is the main function which invokes specific commands
 * [`util`](util) contains shared utility code
 * [`cmd`](cmd) is a directory containing the various [command plugins](#command-apis) -- for example,
-[`version`](version),
-[`add-app`](add-app).
+[`version`](cmd/version),
+[`add-app`](cmd/add-app).
 See the separate `README.md` files in the command directories.
 
 
