@@ -4,7 +4,7 @@ Copyright (C) 2022 Index Data Aps.
 
 These documents and this software are distributed under the terms of the Apache License, Version 2.0. See the file "[LICENSE](LICENSE)" for more information.
 
-This is a project to put FOLIO's foundational modularity to work, enabling a FOLIO installation in practice to support modular use of applications provided by third parties rather than being limited to the modules provided as part of a flower release. Getting this to happen involves both technical and social/political work. This project represents work on the technical aspect.
+Project Firefly is an initiative to put FOLIO's foundational modularity to work, enabling a FOLIO installation in practice to support modular use of applications provided by third parties rather than being limited to the modules provided as part of a flower release. Getting this to happen involves both technical and social/political work. This project represents work on the technical aspect.
 
 Note that this project was previously known as MAFIA (Modular Approach to FOLIO In Action). Some references to this older name may survive here and elsewhere.
 
@@ -14,7 +14,8 @@ Note that this project was previously known as MAFIA (Modular Approach to FOLIO 
 * [Areas of work](#areas-of-work)
 * [Practical steps](#practical-steps)
 * [Documents](#documents)
-* [`folioctl`](#folioctl)
+* [Software](#software)
+* [See also](#see-also)
 
 
 ## Manifesto
@@ -82,13 +83,15 @@ The following in-progress documents represent the current state of this initiati
 * **EXTERNAL.** [_FOLIO modularity in practice: seamless deployment of modules from multiple sources_](https://github.com/MikeTaylor/wolfcon2022/tree/main/modularity), my talk presenting the Firefly ideas at WOLFcon 2022 in Hamburg.
 * [_An aspirational scenario_](doc/aspirational-scenario.md)
 
-See also
-* Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
 
-
-## `folioctl`
+## Software
 
 We have in-progress work on [`folioctl`](folioctl), a command-line tool for administrating FOLIO.
 
+
+
+## See also
+
+* Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
 
 
