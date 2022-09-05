@@ -82,12 +82,12 @@ The following in-progress documents represent the current state of this initiati
 * [_Installing the Harvester Admin app from the FAM file_](doc/installing-an-app.md)
 * **EXTERNAL.** [_FOLIO modularity in practice: seamless deployment of modules from multiple sources_](https://github.com/MikeTaylor/wolfcon2022/tree/main/modularity), my talk presenting the Firefly ideas at WOLFcon 2022 in Hamburg.
 * [_An aspirational scenario_](doc/aspirational-scenario.md)
+* [_Deploying and enabling modules in multi-tenant clusters_](doc/deploy-and-enable.md)
 
 
 ## Software
 
 We have in-progress work on [`folioctl`](folioctl), a command-line tool for administrating FOLIO.
-
 
 
 ## See also
