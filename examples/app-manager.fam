@@ -6,7 +6,7 @@
   "elements": [
     {
       "type": "backend",
-      "url": "ghcr.io/miketaylor/mod-app-store:v1.1.0",
+      "url": "ghcr.io/miketaylor/mod-app-manager:v1.2.0",
       "descriptor": "http://localhost:12368/htdocs/links/mod-app-manager/target/ModuleDescriptor.json",
       "required": true
     }
