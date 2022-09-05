@@ -79,6 +79,7 @@ The following in-progress documents represent the current state of this initiati
 * [_Roles in the creation and use of FOLIO apps_](doc/roles.md)
 * [_Representing platforms with FAM files_](doc/fam-files-for-platforms.md)
 * [_Installing the Harvester Admin app from the FAM file_](doc/installing-an-app.md)
+* **EXTERNAL.** [_FOLIO modularity in practice: seamless deployment of modules from multiple sources_](https://github.com/MikeTaylor/wolfcon2022/tree/main/modularity), my talk presenting the Firefly ideas at WOLFcon 2022 in Hamburg.
 
 See also
 * Mike Gorrell's draft document [_OLF Release/Package/App Store_](https://docs.google.com/document/d/1eaCwFLydFIviMiVrDBhJmTO_wuRgAMNsK2QEmQqMcZU/edit?pli=1#heading=h.7430ujqzdamg).
