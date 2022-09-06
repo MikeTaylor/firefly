@@ -60,7 +60,9 @@ A module can only be used when it has been enabled for a specific tenant, by POS
 When a module is enabled for tenant -- whether it is a backend module that Okapi will proxy to or a UI module which it will not -- any permissions defined in that module's descriptor are made available on the tenant.
 
 * **XXX** How is this done? Are they passed to `mod-permissions`? By what mechanism? What happens if the permissions are already in existence? Are the permissions removed when the module is disabled?
-
+* @adam: "The guide of okapi and the readme of mod-permissions has more information about the tenantPermissions interface. Not just in code, but in actual, you know, documentation."
+* @adam: "One funny detail of passing permissions is the bootstrap process.. When a tenant is created and modules are enabled, _tenantPermissions interface may not be provided by any module (because mod-permissions is not there, just yet). When eventually mod-permissions gets enabled okapi will then pass permissions for modules for all enabled so far. After this point (mod-permissions is enabled), it happens one by one."
+* @adam: "The process - pass permissions for modules is idempotent.. It's ok if it happens twice and result will be the same."
 
 ### Multiple versions of a module
 
