@@ -54,6 +54,14 @@ Most of the examples in the Okapi Guide use an Okapi running in `dev` mode, so t
 
 A module can only be used when it has been enabled for a specific tenant, by POSTing the module identifier to `/_/proxy/tenants/TENANT/modules` for some value of _TENANT_. This needs to be done separately for each tenant that is to use the module. When a module is enabled for a tenant on one node of a cluster, it is enabled for all nodes -- or, to put it another way, enabling/disabling modules is nothing to do with nodes at all.
 
+**XXX @adam:**
+The "Enabling the module" should also mention the install call. The install call (perhaps a bad name) is just a multi-enable/disable thingy. The single enable API is really not useful any more. See https://github.com/folio-org/okapi/blob/master/doc/guide.md#install-modules-per-tenant . The install example, illustrates the situation in August 2017.. During those days pulling in mod-users-bl pulled in a total of 4 modules (including mod-users-bl). Those were the days.
+
+**XXX**
+Discuss the `_tenant` interface, the distinction between `loadReference` and `loadSample`, when these might be expected, and idempotency guards.
+
+Once a module is enabled for a tenant, Okapi may use any deployed instance of that module to service any request on behalf of the tenant. Sequences of requests may be routed to different deployed instances.
+
 
 ### Permissions
 
@@ -91,14 +99,3 @@ When providing Okapi Console functionality for performing these operations, we w
 
 
 
-# Notes from Adam (to be integrated)
-
-Module descriptors and deployment is not tenant specific. Period. Even mentioning tenants in this context is misleading, but you can do it to avoid misunderstandings. "deployed modules may be used by one tenant or many (or indeed none)." . There's an important zero case. Used by zero tenants. Again, it's not tenant specific :slightly_smiling_face:
-
-install/enable is always tenant specific. One tenant is given as path parameter.
-
-If you haven't read the okapi guide, you should - it documents the two system interfaces _tenant and _tenantPermissions, but also describes deployment, discovery and proxy which are the main categories of what Okapi provides. Also the README.md of mod-permissions is not too bad either.
-
-The "Enabling the module" should also mention the install call. The install call (perhaps a bad name) is just a multi-enable/disable thingy. The single enable API is really not useful any more. See https://github.com/folio-org/okapi/blob/master/doc/guide.md#install-modules-per-tenant
-
-The install example, illustrates the situation in August 2017.. During those days pulling in mod-users-bl pulled in a total of 4 modules (including mod-users-bl). Those were the days.
