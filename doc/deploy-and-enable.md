@@ -58,6 +58,9 @@ In practice, modules are usually not enabled one by one, but [as a batch by POST
 
 When a module is enabled, Okapi invokes [its special `_tenant` interface](https://github.com/folio-org/okapi/blob/master/doc/guide.md#example-3-upgrading-versions-environment-and-the-_tenant-interface) by POSTing to `/_/_tenant` so the module can perform appropriate initialization. If the install parameter `tenantParameters`, a comma-separated list of `key=value` pairs, has been provided to Okapi, then it is passed to the tenant initializaton call. Some modules honour the keys `loadSample` and `loadReference`, though their semantics are, unhelpfully, not defined.
 
+* **NOTE.**
+By inspection, the record posted to `/_/_tenant/` contains a `module_to` field when enabling, and `module_from` when disabling, in both cases set to the ID of the module being enabled or disabled. There is also a  `purge` field with value `false`.
+
 Once a module has been enabled for a tenant, Okapi may use any deployed instance of that module to service any request on behalf of the tenant. Sequences of requests may be routed to different deployed instances.
 
 
