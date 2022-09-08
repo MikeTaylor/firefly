@@ -54,13 +54,11 @@ Most of the examples in the Okapi Guide use an Okapi running in `dev` mode, so t
 
 A module can only be used when it has been enabled for a specific tenant, by POSTing the module identifier to `/_/proxy/tenants/TENANT/modules` for some value of _TENANT_. This needs to be done separately for each tenant that is to use the module. When a module is enabled for a tenant on one node of a cluster, it is enabled for all nodes -- or, to put it another way, enabling/disabling modules is nothing to do with nodes at all.
 
-**XXX @adam:**
-The "Enabling the module" should also mention the install call. The install call (perhaps a bad name) is just a multi-enable/disable thingy. The single enable API is really not useful any more. See https://github.com/folio-org/okapi/blob/master/doc/guide.md#install-modules-per-tenant . The install example, illustrates the situation in August 2017.. During those days pulling in mod-users-bl pulled in a total of 4 modules (including mod-users-bl). Those were the days.
+In practice, modules are usually not enabled one by one, but [as a batch by POSTing a list of modules to the misleadingly named `/_/proxy/tenants/TENANT/install` endpoint](https://github.com/folio-org/okapi/blob/master/doc/guide.md#install-modules-per-tenant). The advantage of this approach is that Okapi itself resolves dependencies rather than requiring the user to laboriously enabled used modules before their users. We discuss Okapi's dependency resolution facilities in more detail in [_Defining platforms for Okapi_](okapi-platforms.md).
 
-**XXX**
-Discuss the `_tenant` interface, the distinction between `loadReference` and `loadSample`, when these might be expected, and idempotency guards.
+When a module is enabled, Okapi invokes [its special `_tenant` interface](https://github.com/folio-org/okapi/blob/master/doc/guide.md#example-3-upgrading-versions-environment-and-the-_tenant-interface) by POSTing to `/_/_tenant` so the module can perform appropriate initialization. If the install parameter `tenantParameters`, a comma-separated list of `key=value` pairs, has been provided to Okapi, then it is passed to the tenant initializaton call. Some modules honour the keys `loadSample` and `loadReference`, though their semantics are, unhelpfully, not defined.
 
-Once a module is enabled for a tenant, Okapi may use any deployed instance of that module to service any request on behalf of the tenant. Sequences of requests may be routed to different deployed instances.
+Once a module has been enabled for a tenant, Okapi may use any deployed instance of that module to service any request on behalf of the tenant. Sequences of requests may be routed to different deployed instances.
 
 
 ### Permissions
