@@ -151,3 +151,16 @@ curl --fail-with-body -d'[{"id":"mod-app-manager-1.2.0", "action":"disable"}]' h
 The tenant parameters are passed to the module in the same way as for enabling.
 
 
+### What exactly do `loadReference` and `loadSample` mean?
+
+These parameters tell the enabled module to load "reference data" and "sample data" respectively, but there are no very useful definitions of these terms. [The Tech Council review document _Defining data types in FOLIO for automatic upgrades_](https://wiki.folio.org/display/TC/Defining+data+types+in+FOLIO+for+automatic+upgrades) says only
+ 
+> * **Reference data** --
+> Data that are referred to by other records in the system, which may be optionally loaded on module initialization using the loadReference tenant parameter.
+> * **User/sample data** --
+> Data that are created by the user, or loaded using the loadSample tenant parameter.
+
+XXX incorporate further discussion from Slack: https://indexdata.slack.com/archives/C011TJ91SV8/p1662732092796999?thread_ts=1662724894.870039&cid=C011TJ91SV8
+
+
+
