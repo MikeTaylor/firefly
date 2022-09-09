@@ -128,7 +128,7 @@ be *reposted* to install again. If that is desired.
 
 It does not seem to be possible to pass tenant parameters through to a module when enabling it via POST to `/_/proxy/tenants/TENANT/modules`. Instead, the higher-level "install" operation must be used, and the parameters are provided as a single parameter in the URL query string:
 ```
-$ curl --fail-with-body -d'[{"id":"mod-app-manager-1.2.0", "action":"enable"}]' http://localhost:9130/_/proxy/tenants/diku/install?tenantParameters=foo=1%2Cbar=42
+$ curl --fail-with-body -d'[{"id":"mod-app-manager-1.2.0", "action":"enable"}]' http://localhost:9130/_/proxy/tenants/diku/install?tenantParameters=loadReference%3Dtrue%2CloadSample%3Dtrue
 [ {
   "id" : "mod-app-manager-1.2.0",
   "action" : "enable"
@@ -140,11 +140,11 @@ record {
   "module_to" : "mod-app-manager-1.2.0",
   "purge" : false,
   "parameters" : [ {
-    "key" : "foo",
-    "value" : "1"
+    "key" : "loadReference",
+    "value" : "true"
   }, {
-    "key" : "bar",
-    "value" : "42"
+    "key" : "loadSample",
+    "value" : "true"
   } ]
 }
 ```
@@ -152,7 +152,7 @@ Repeating this is a no-op, as the module is already enabled. It is not reported 
 
 Then the module can be disabled in the same way:
 ```
-curl --fail-with-body -d'[{"id":"mod-app-manager-1.2.0", "action":"disable"}]' http://localhost:9130/_/proxy/tenants/diku/install?tenantParameters=foo=1%2Cbar=42
+curl --fail-with-body -d'[{"id":"mod-app-manager-1.2.0", "action":"disable"}]' http://localhost:9130/_/proxy/tenants/diku/install?tenantParameters=loadReference%3Dtrue%2CloadSample%3Dtrue
 ```
 The tenant parameters are passed to the module in the same way as for enabling.
 
