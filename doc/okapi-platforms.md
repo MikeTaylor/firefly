@@ -1,5 +1,11 @@
 # Defining platforms for Okapi
 
+<!-- md2toc -l 2 okapi-platforms.md -->
+* [Notes](#notes)
+* [Example of multiple module offering same interface](#example-of-multiple-module-offering-same-interface)
+* [Enabling with parameters](#enabling-with-parameters)
+    * [What exactly do `loadReference` and `loadSample` mean?](#what-exactly-do-loadreference-and-loadsample-mean)
+
 
 ## Notes
 
