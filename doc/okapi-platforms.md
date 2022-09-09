@@ -166,7 +166,16 @@ These parameters tell the enabled module to load "reference data" and "sample da
 > * **User/sample data** --
 > Data that are created by the user, or loaded using the loadSample tenant parameter.
 
-XXX incorporate further discussion from Slack: https://indexdata.slack.com/archives/C011TJ91SV8/p1662732092796999?thread_ts=1662724894.870039&cid=C011TJ91SV8
+At present, the reference/sample data distinction is a grey area. Wayne Schneider thinks of reference data as optional default data (records) that are "referred to" by other record types, e.g. possible values for the "contributor type" of an inventory instance. In some cases, you can't create the larger record without having some reference data records, whether system-supplied or user-created. Sample data are samples of the larger records, and are meant to be used for demo or testing purposes, such as the example bibliographic records in [the Inventory app on `folio-snapshot`](https://folio-snapshot.dev.folio.org/inventory?sort=title).
 
+Generally speaking, we use the `loadReference=true` tenant parameter when enabling modules for tenants for a release, and do the same for a release upgrade, but not for a hot fix. This is necessary to pick up new reference data record types that might have been introduced, or new values that a SIG asked to be added to the existing types.
+
+Here is where we run into trouble with the vagueness of the definition, however, because some system-supplied reference data records are editable by the user, and can be overwritten by the upgrade. This happens in particular with staff slips in circulation. Also, there is no internationalization of the labels for most of the records, so libraries that don't want to use US English labels will find that the labels are overwritten with the upgrade.
+
+Modules that have reference data or sample data must take some care to be idempotent, so that we don't end up with (for example) multiple copies of the identifier-type that defines how ISBNs are represented in FOLIO. The code in [RMB](https://github.com/folio-org/raml-module-builder/) attempts to POST each reference record, and if it fails because it already exists, it PUTs it to overwrites with the new version. (We think the Spring-based modules mimic this behavior, but we have not verified this).
+
+It is also possible for modules to have absolutely necessary records. In this case, it is reasonable for them insert these whenever a tenant is enabled irrespective of whether any tenant parameters are sent.
+
+[The Tech Council review document _Improved Handling of Reference Data During Upgrades_](https://wiki.folio.org/display/TC/Improved+Handling+of+Reference+Data+During+Upgrades) is the outcome of six months of meetings between half a dozen architects, developers and operations people, and attempts to define upgrade semantics more precisely, but it has not been formally adopted -- in part because of the complexity of dealing with "read-mostly" records which are in some conceptual sense read-only but in fact subject to editing. (Opinion: FOLIO should have a way to enforce the read-onliness of certain records.)
 
 
